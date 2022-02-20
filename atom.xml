@@ -1,0 +1,38 @@
+<?xml version="1.0" encoding="utf-8"?>
+<feed xmlns="http://www.w3.org/2005/Atom">
+  <title>Guiyi&#39;s blog</title>
+  
+  
+  <link href="http://guiyiblog.cn/atom.xml" rel="self"/>
+  
+  <link href="http://guiyiblog.cn/"/>
+  <updated>2022-02-20T08:44:41.920Z</updated>
+  <id>http://guiyiblog.cn/</id>
+  
+  <author>
+    <name>归一</name>
+    
+  </author>
+  
+  <generator uri="https://hexo.io/">Hexo</generator>
+  
+  <entry>
+    <title>Python数据类型和变量</title>
+    <link href="http://guiyiblog.cn/2022/02/19/Python%E6%95%B0%E6%8D%AE%E7%B1%BB%E5%9E%8B%E5%92%8C%E5%8F%98%E9%87%8F/"/>
+    <id>http://guiyiblog.cn/2022/02/19/Python%E6%95%B0%E6%8D%AE%E7%B1%BB%E5%9E%8B%E5%92%8C%E5%8F%98%E9%87%8F/</id>
+    <published>2022-02-19T06:37:08.000Z</published>
+    <updated>2022-02-20T08:44:41.920Z</updated>
+    
+    
+    <summary type="html">&lt;p&gt;计算机顾名思义就是可以做数学计算的机器，因此，计算机程序理所当然地可以处理各种数值。但是，计算机能处理的远不止数值，还可以处理文本、图形、音频、视频、网页等各种各样的数据，不同的数据，需要定义不同的数据类型。&lt;/p&gt;</summary>
+    
+    
+    
+    <category term="Python" scheme="http://guiyiblog.cn/categories/Python/"/>
+    
+    
+    <category term="Python" scheme="http://guiyiblog.cn/tags/Python/"/>
+    
+  </entry>
+  
+</feed>
