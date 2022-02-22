@@ -6,7 +6,7 @@
   <link href="http://guiyiblog.cn/atom.xml" rel="self"/>
   
   <link href="http://guiyiblog.cn/"/>
-  <updated>2022-02-20T08:44:41.920Z</updated>
+  <updated>2022-02-22T14:42:11.895Z</updated>
   <id>http://guiyiblog.cn/</id>
   
   <author>
@@ -17,11 +17,62 @@
   <generator uri="https://hexo.io/">Hexo</generator>
   
   <entry>
+    <title>量化分析方法</title>
+    <link href="http://guiyiblog.cn/2022/02/22/%E9%87%8F%E5%8C%96%E5%88%86%E6%9E%90%E6%96%B9%E6%B3%95/"/>
+    <id>http://guiyiblog.cn/2022/02/22/%E9%87%8F%E5%8C%96%E5%88%86%E6%9E%90%E6%96%B9%E6%B3%95/</id>
+    <published>2022-02-22T14:32:21.000Z</published>
+    <updated>2022-02-22T14:42:11.895Z</updated>
+    
+    
+    <summary type="html">&lt;h2 id=&quot;如何从定性分析转变为定量分析？&quot;&gt;如何从定性分析转变为定量分析？&lt;/h2&gt;
+&lt;p&gt;&lt;strong&gt;例: 明天天气怎么样？&lt;/strong&gt;&lt;/p&gt;
+&lt;ol&gt;
+&lt;li&gt;
+&lt;p&gt;变量抽离: 天气状况&lt;/p&gt;
+&lt;/li&gt;
+&lt;li&gt;
+&lt;p&gt;寻找衡量标准: 背景是明天要去室外打球，主要关心下不下雨&lt;/p&gt;
+&lt;/li&gt;
+&lt;li&gt;
+&lt;p&gt;根据信息量大小由小到大扩充变量信息&lt;/p&gt;&lt;/li&gt;&lt;/ol&gt;</summary>
+    
+    
+    
+    <category term="分析方法" scheme="http://guiyiblog.cn/categories/%E5%88%86%E6%9E%90%E6%96%B9%E6%B3%95/"/>
+    
+    
+    <category term="量化分析" scheme="http://guiyiblog.cn/tags/%E9%87%8F%E5%8C%96%E5%88%86%E6%9E%90/"/>
+    
+  </entry>
+  
+  <entry>
+    <title>Python数据类型和变量</title>
+    <link href="http://guiyiblog.cn/2022/02/22/Python%E6%B5%81%E7%A8%8B%E6%8E%A7%E5%88%B6%E8%AF%AD%E5%8F%A5/"/>
+    <id>http://guiyiblog.cn/2022/02/22/Python%E6%B5%81%E7%A8%8B%E6%8E%A7%E5%88%B6%E8%AF%AD%E5%8F%A5/</id>
+    <published>2022-02-22T06:37:08.000Z</published>
+    <updated>2022-02-22T14:44:16.493Z</updated>
+    
+    
+    <summary type="html">&lt;h2 id=&quot;条件判断语句&quot;&gt;条件判断语句&lt;/h2&gt;
+&lt;h3 id=&quot;if-语句&quot;&gt;if 语句&lt;/h3&gt;
+&lt;figure class=&quot;highlight plaintext&quot;&gt;&lt;table&gt;&lt;tr&gt;&lt;td class=&quot;gutter&quot;&gt;&lt;pre&gt;&lt;span class=&quot;line&quot;&gt;1&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;2&lt;/span&gt;&lt;br&gt;&lt;/pre&gt;&lt;/td&gt;&lt;td class=&quot;code&quot;&gt;&lt;pre&gt;&lt;span class=&quot;line&quot;&gt;if 条件:&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;    条件为真（True）执行操作&lt;/span&gt;&lt;br&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;/table&gt;&lt;/figure&gt;
+&lt;p&gt;&lt;img src=&quot;/2022/02/22/Python%E6%B5%81%E7%A8%8B%E6%8E%A7%E5%88%B6%E8%AF%AD%E5%8F%A5/image-20220222175747138.png&quot; alt=&quot;image-20220222175835406&quot;&gt;&lt;/p&gt;</summary>
+    
+    
+    
+    <category term="Python" scheme="http://guiyiblog.cn/categories/Python/"/>
+    
+    
+    <category term="Python" scheme="http://guiyiblog.cn/tags/Python/"/>
+    
+  </entry>
+  
+  <entry>
     <title>Python数据类型和变量</title>
     <link href="http://guiyiblog.cn/2022/02/19/Python%E6%95%B0%E6%8D%AE%E7%B1%BB%E5%9E%8B%E5%92%8C%E5%8F%98%E9%87%8F/"/>
     <id>http://guiyiblog.cn/2022/02/19/Python%E6%95%B0%E6%8D%AE%E7%B1%BB%E5%9E%8B%E5%92%8C%E5%8F%98%E9%87%8F/</id>
     <published>2022-02-19T06:37:08.000Z</published>
-    <updated>2022-02-20T08:44:41.920Z</updated>
+    <updated>2022-02-22T14:31:02.627Z</updated>
     
     
     <summary type="html">&lt;p&gt;计算机顾名思义就是可以做数学计算的机器，因此，计算机程序理所当然地可以处理各种数值。但是，计算机能处理的远不止数值，还可以处理文本、图形、音频、视频、网页等各种各样的数据，不同的数据，需要定义不同的数据类型。&lt;/p&gt;</summary>
