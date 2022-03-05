@@ -6,7 +6,7 @@
   <link href="http://guiyiblog.cn/atom.xml" rel="self"/>
   
   <link href="http://guiyiblog.cn/"/>
-  <updated>2022-02-22T14:42:11.895Z</updated>
+  <updated>2022-03-05T04:23:57.689Z</updated>
   <id>http://guiyiblog.cn/</id>
   
   <author>
@@ -15,6 +15,25 @@
   </author>
   
   <generator uri="https://hexo.io/">Hexo</generator>
+  
+  <entry>
+    <title>描述统计学</title>
+    <link href="http://guiyiblog.cn/2022/03/05/%E6%8F%8F%E8%BF%B0%E7%BB%9F%E8%AE%A1%E5%AD%A6/"/>
+    <id>http://guiyiblog.cn/2022/03/05/%E6%8F%8F%E8%BF%B0%E7%BB%9F%E8%AE%A1%E5%AD%A6/</id>
+    <published>2022-03-05T06:37:08.000Z</published>
+    <updated>2022-03-05T04:23:57.689Z</updated>
+    
+    
+    <summary type="html">&lt;p&gt;本文主要介绍了数据分析统计基础——统计描述。数据分析的前提就是要学会观察数据，了解数据，统计描述包括对数据的图表描述和统计量描述，它能让我们对数据有一个直观的认识，比如数据是否完整、是否存在异常、服从什么分布、存在什么规律等，为数据预处理和数据分析做准备。&lt;/p&gt;</summary>
+    
+    
+    
+    <category term="统计学" scheme="http://guiyiblog.cn/categories/%E7%BB%9F%E8%AE%A1%E5%AD%A6/"/>
+    
+    
+    <category term="描述统计" scheme="http://guiyiblog.cn/tags/%E6%8F%8F%E8%BF%B0%E7%BB%9F%E8%AE%A1/"/>
+    
+  </entry>
   
   <entry>
     <title>量化分析方法</title>
