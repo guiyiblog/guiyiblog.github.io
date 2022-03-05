@@ -6,7 +6,7 @@
   <link href="http://guiyiblog.cn/atom.xml" rel="self"/>
   
   <link href="http://guiyiblog.cn/"/>
-  <updated>2022-03-05T04:34:24.031Z</updated>
+  <updated>2022-03-05T11:13:26.383Z</updated>
   <id>http://guiyiblog.cn/</id>
   
   <author>
@@ -17,11 +17,30 @@
   <generator uri="https://hexo.io/">Hexo</generator>
   
   <entry>
+    <title>推断统计学</title>
+    <link href="http://guiyiblog.cn/2022/03/05/%E6%8E%A8%E6%96%AD%E7%BB%9F%E8%AE%A1%E5%AD%A6/"/>
+    <id>http://guiyiblog.cn/2022/03/05/%E6%8E%A8%E6%96%AD%E7%BB%9F%E8%AE%A1%E5%AD%A6/</id>
+    <published>2022-03-05T11:37:08.000Z</published>
+    <updated>2022-03-05T11:13:26.383Z</updated>
+    
+    
+    <summary type="html">&lt;p&gt;本文主要介绍使用样本推断总体的统计学方法，主要包括参数估计和假设检验。参数估计使用样本统计量估计总体参数，假设检验则使用样本数据推断对某一总体的假设是否成立，两者的理论基础都是大数定律和中心极限定理。&lt;/p&gt;</summary>
+    
+    
+    
+    <category term="统计学" scheme="http://guiyiblog.cn/categories/%E7%BB%9F%E8%AE%A1%E5%AD%A6/"/>
+    
+    
+    <category term="统计推断" scheme="http://guiyiblog.cn/tags/%E7%BB%9F%E8%AE%A1%E6%8E%A8%E6%96%AD/"/>
+    
+  </entry>
+  
+  <entry>
     <title>描述统计学</title>
     <link href="http://guiyiblog.cn/2022/03/05/%E6%8F%8F%E8%BF%B0%E7%BB%9F%E8%AE%A1%E5%AD%A6/"/>
     <id>http://guiyiblog.cn/2022/03/05/%E6%8F%8F%E8%BF%B0%E7%BB%9F%E8%AE%A1%E5%AD%A6/</id>
     <published>2022-03-05T06:37:08.000Z</published>
-    <updated>2022-03-05T04:34:24.031Z</updated>
+    <updated>2022-03-05T09:05:45.260Z</updated>
     
     
     <summary type="html">&lt;p&gt;本文主要介绍了数据分析统计基础——统计描述。数据分析的前提就是要学会观察数据，了解数据，统计描述包括对数据的图表描述和统计量描述，它能让我们对数据有一个直观的认识，比如数据是否完整、是否存在异常、服从什么分布、存在什么规律等，为数据预处理和数据分析做准备。&lt;/p&gt;</summary>
@@ -65,11 +84,11 @@
   </entry>
   
   <entry>
-    <title>Python数据类型和变量</title>
+    <title>Python控制流语句</title>
     <link href="http://guiyiblog.cn/2022/02/22/Python%E6%B5%81%E7%A8%8B%E6%8E%A7%E5%88%B6%E8%AF%AD%E5%8F%A5/"/>
     <id>http://guiyiblog.cn/2022/02/22/Python%E6%B5%81%E7%A8%8B%E6%8E%A7%E5%88%B6%E8%AF%AD%E5%8F%A5/</id>
     <published>2022-02-22T06:37:08.000Z</published>
-    <updated>2022-02-22T14:44:16.493Z</updated>
+    <updated>2022-03-05T07:56:47.340Z</updated>
     
     
     <summary type="html">&lt;h2 id=&quot;条件判断语句&quot;&gt;条件判断语句&lt;/h2&gt;

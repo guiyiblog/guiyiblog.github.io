@@ -66,7 +66,7 @@
 
 
 
-  <meta name="keywords" content="Hexo, NexT" />
+  <meta name="keywords" content="统计推断," />
 
 
 
@@ -79,15 +79,22 @@
 
 
 
-<meta name="description" content="在理性的基础上，一切判断都是统计学。">
-<meta property="og:type" content="website">
-<meta property="og:title" content="Guiyi&#39;s blog">
-<meta property="og:url" content="http://guiyiblog.cn/tags/%E6%8F%8F%E8%BF%B0%E7%BB%9F%E8%AE%A1/index.html">
+<meta name="description" content="本文主要介绍使用样本推断总体的统计学方法，主要包括参数估计和假设检验。参数估计使用样本统计量估计总体参数，假设检验则使用样本数据推断对某一总体的假设是否成立，两者的理论基础都是大数定律和中心极限定理。">
+<meta property="og:type" content="article">
+<meta property="og:title" content="推断统计学">
+<meta property="og:url" content="http://guiyiblog.cn/2022/03/05/%E6%8E%A8%E6%96%AD%E7%BB%9F%E8%AE%A1%E5%AD%A6/index.html">
 <meta property="og:site_name" content="Guiyi&#39;s blog">
-<meta property="og:description" content="在理性的基础上，一切判断都是统计学。">
+<meta property="og:description" content="本文主要介绍使用样本推断总体的统计学方法，主要包括参数估计和假设检验。参数估计使用样本统计量估计总体参数，假设检验则使用样本数据推断对某一总体的假设是否成立，两者的理论基础都是大数定律和中心极限定理。">
 <meta property="og:locale">
+<meta property="og:image" content="http://guiyiblog.cn/2022/03/05/%E6%8E%A8%E6%96%AD%E7%BB%9F%E8%AE%A1%E5%AD%A6/image-20220305160649887.png">
+<meta property="og:image" content="http://guiyiblog.cn/2022/03/05/%E6%8E%A8%E6%96%AD%E7%BB%9F%E8%AE%A1%E5%AD%A6/image-20220305163943512.png">
+<meta property="og:image" content="http://guiyiblog.cn/2022/03/05/%E6%8E%A8%E6%96%AD%E7%BB%9F%E8%AE%A1%E5%AD%A6/image-20220305164008254.png">
+<meta property="article:published_time" content="2022-03-05T11:37:08.000Z">
+<meta property="article:modified_time" content="2022-03-05T11:13:26.383Z">
 <meta property="article:author" content="归一">
+<meta property="article:tag" content="统计推断">
 <meta name="twitter:card" content="summary">
+<meta name="twitter:image" content="http://guiyiblog.cn/2022/03/05/%E6%8E%A8%E6%96%AD%E7%BB%9F%E8%AE%A1%E5%AD%A6/image-20220305160649887.png">
 
 
 
@@ -117,13 +124,13 @@
 
 
 
-  <link rel="canonical" href="http://guiyiblog.cn/tags/描述统计/"/>
+  <link rel="canonical" href="http://guiyiblog.cn/2022/03/05/推断统计学/"/>
 
 
 
 
 
-  <title>标签: 描述统计 | Guiyi's blog</title>
+  <title>推断统计学 | Guiyi's blog</title>
   
 
 
@@ -142,7 +149,7 @@
     
   
 
-  <div class="container sidebar-position-left ">
+  <div class="container sidebar-position-left page-post-detail">
     <div class="headband"></div>
 
     <header id="header" class="header" itemscope itemtype="http://schema.org/WPHeader">
@@ -280,54 +287,273 @@
           <div id="content" class="content">
             
 
-  
-  
-  
-  <div class="post-block tag">
+  <div id="posts" class="posts-expand">
+    
 
-    <div id="posts" class="posts-collapse">
-      <div class="collection-title">
-        <h1>描述统计<small>标签</small>
-        </h1>
-      </div>
+  
 
-      
-        
+  
+  
+  
 
   <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
-    <header class="post-header">
+  
+  
+  
+  <div class="post-block">
+    <link itemprop="mainEntityOfPage" href="http://guiyiblog.cn/2022/03/05/%E6%8E%A8%E6%96%AD%E7%BB%9F%E8%AE%A1%E5%AD%A6/">
 
-      <h2 class="post-title">
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="name" content="">
+      <meta itemprop="description" content="">
+      <meta itemprop="image" content="/images/header.jpg">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="Guiyi's blog">
+    </span>
+
+    
+      <header class="post-header">
+
         
-            <a class="post-title-link" href="/2022/03/05/%E6%8F%8F%E8%BF%B0%E7%BB%9F%E8%AE%A1%E5%AD%A6/" itemprop="url">
-              
-                <span itemprop="name">描述统计学</span>
-              
-            </a>
         
-      </h2>
+          <h1 class="post-title" itemprop="name headline">推断统计学</h1>
+        
 
-      <div class="post-meta">
-        <time class="post-time" itemprop="dateCreated"
-              datetime="2022-03-05T14:37:08+08:00"
-              content="2022-03-05" >
-          03-05
-        </time>
-      </div>
+        <div class="post-meta">
+          <span class="post-time">
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-calendar-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">发表于</span>
+              
+              <time title="创建于" itemprop="dateCreated datePublished" datetime="2022-03-05T19:37:08+08:00">
+                2022-03-05
+              </time>
+            
 
-    </header>
-  </article>
+            
 
+            
+          </span>
+
+          
+            <span class="post-category" >
+            
+              <span class="post-meta-divider">|</span>
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-folder-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">分类于</span>
+              
+              
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+                  <a href="/categories/%E7%BB%9F%E8%AE%A1%E5%AD%A6/" itemprop="url" rel="index">
+                    <span itemprop="name">统计学</span>
+                  </a>
+                </span>
+
+                
+                
+              
+            </span>
+          
+
+          
+            
+          
+
+          
+          
+
+          
+
+          
+           <span class="post-meta-divider">|</span>
+           <span id="busuanzi_value_page_pv"></span>次阅读
+          
+
+          
+
+          
+
+        </div>
+      </header>
+    
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
+      
+      
+
+      
+        <p>本文主要介绍使用样本推断总体的统计学方法，主要包括参数估计和假设检验。参数估计使用样本统计量估计总体参数，假设检验则使用样本数据推断对某一总体的假设是否成立，两者的理论基础都是大数定律和中心极限定理。</p>
+  <span id="more"></span>
+<p><img src="/2022/03/05/%E6%8E%A8%E6%96%AD%E7%BB%9F%E8%AE%A1%E5%AD%A6/image-20220305160649887.png" alt="image-20220305160649887"></p>
+<h2 id="第一部分-抽样分布">第一部分 抽样分布</h2>
+<p><strong>1.  简述大数定律和中心极限定理及其意义。</strong></p>
+<p><strong>（1）大数定律：</strong> 在随机事件的大量重复出现中，往往呈现几乎必然的规律，这个规律就是大数定律。通俗地说就是，<strong>在试验不变的条件下，重复试验多次，随机事件的频率近似于它的概率。偶然中包含着某种必然。</strong></p>
+<p><strong>（2）中心极限定理：</strong> 在任意分布的总体中抽取样本，其样本均值的极限分布为正态分布。该定理概括了样本均值和总体分布之间的关系，样本均值分布在统计推断中的具体应用。</p>
+<p><strong>2.  简述卡方分布、t分布、F分布的定义、特点、应用。</strong></p>
+<p><strong>（1）$$ \chi^2$$分布：</strong></p>
+<p><strong>定义：</strong> 设随机变量 $$x_1,x_2,x_3…,x_n$$相互独立且服从正态分布，则它们的平方和 $$\sum_{i=1}^{n}{x_i^2}$$服从自由度为n的$$ \chi^2$$分布。</p>
+<p><strong>特点：</strong> （1）自由度不同，$$ \chi^2$$分布的形状则不同；（2）它是一种非对称分布，当自由度n相当大时，接近于正态分布；（3）它的变量值始终为正。</p>
+<p><strong>应用：</strong> （1）用来构造t分布和F分布；（2）在拟合优度检验和独立性检验中用它来构造$$ \chi^2$$检验统计量；</p>
+<p><strong>（2）$$t$$ 分布：</strong></p>
+<p><strong>定义：</strong> 设随机变量X与Y相互独立，X~N(0,1),Y~N(0,1)，则）$$\frac{X}{Y/n}$$ 服从自由度为n的t分布。</p>
+<p><strong>特点：</strong> （1）自由度不同，分布的形状则不同；（2）它是一种对称分布，当自由度n相当大时，接近于正态分布；（3）它的密度函数为偶函数。</p>
+<p><strong>应用：</strong> （1）用于小样本均值的参数估计和假设检验。</p>
+<p><strong>（3）$$F$$分布：</strong></p>
+<p><strong>定义：</strong> 设随机变量X与Y相互独立，$$X$$ ~ $$\chi^2(n)$$，$$Y$$ ~ $$\chi^2(m)$$ , 则$$\frac{X/n}{Y/m}$$服从第一自由度为n，第二自由度为m的F分布。</p>
+<p><strong>特点：</strong> （1）自由度不同，分布的形状则不同；（2）它是一种非对称分布；（3）它的变量值始终为正。</p>
+<p><strong>应用：</strong> （1）用于两总体方差比的参数估计和假设检验（2）在方差分析和回归分析中用于对参数进行统计推断。</p>
+<p><strong>3.   重复抽样和不重复抽样相比，抽样均值分布的标准差有什么不同？</strong></p>
+<p>（1）  在重复抽样条件下，样本均值$$\overline{x}$$ 的方差为$$ \frac{\sigma^2}{n}$$ ，在不重复抽样条件下，样本均值$$\overline{x}$$ 的方差为$$ \frac{N-n}{N-1} \frac{\sigma^2}{n}$$ ；</p>
+<p>（2）  在无限总体不重复情况下或有限总体$$n\rightarrow N$$  ，$$ \frac{N-n}{N-1} \rightarrow 1 $$  ，则$$\overline{x}$$ 的方差可近似为$$ \frac{\sigma^2}{n}$$</p>
+<p><strong>4.  什么是统计量的标准误差？它有什么用途？</strong></p>
+<p>统计量的标准误差是指样本统计量分布的标准差。它用于衡量样本统计量的离散程度，在参数估计和假设检验中，它是用于衡量样本统计量与总体参数之间差距的一个重要尺度。</p>
+<p>标准误差与标准差的区别：标准差是根据原始观测值计算的，反映一组原始数据的离散程度。而标准误差是根据样本统计量计算的，反映统计量的离散程度。比如，样本均值的标准误差是根据多个样本的样本均值计算的，反映样本均值的离散程度。</p>
+<p><strong>5.  什么是抽样平均误差？影响抽样平均误差的因素有哪些？</strong></p>
+<p>抽样平均误差是指抽样平均数（或抽样成数）的标准差。它反映抽样平均数（或抽样成数）与总体平均数（或总体成数）的平均误差程度。</p>
+<p>影响抽样平均误差的因素有四个：</p>
+<p>（1）  样本单位数目。在其他条件不变的情况下，抽样数目越多，抽样误差越小；抽样数目越少，抽样误差越大。当n=N时，就是全面调查，抽样误差此时为零。</p>
+<p>（2）  总体标志变异程度。其他条件不变的情况下，总体标志变异程度越大，抽样误差越大；总体标志变异程度越小，抽样误差越小。</p>
+<p>（3）  抽样方法。一般讲，不重复抽样的抽样误差要小于重复抽样的抽样误差。当n相对N非常小时，两种抽样方法的抽样误差相差很小，可忽略不计。</p>
+<p>（4）  抽样组织方式。采用不同的抽样组织方式，也会有不同的抽样误差。一般讲分层抽样的抽样误差较小，而整群抽样的抽样误差较大。</p>
+<h2 id="第二部分-参数估计">第二部分 参数估计</h2>
+<p>参数估计就是用样本统计量去估计总体参数。</p>
+<p><strong>1.</strong> <strong>点估计和区间估计及其区别与联系</strong></p>
+<p><strong>点估计</strong>就是用样本统计量的某个取值直接作为总体参数的估计值。</p>
+<p><strong>区间估计</strong>是在点估计的基础上，给出总体参数估计的一个估计区间，该区间通常由样本统计量加减估计误差组成。</p>
+<p><strong>点估计的不足</strong>： 由于样本是随机的，抽出一个具体的样本得到的估计值可能不同于总体真值，因此还必须给出点估计值的可靠性，而其可靠性是由抽样的标准误差来衡量的，这表明一个具体的**点估计值无法给出估计的可靠性度量，也无法说明点估计值与总体参数的接近程度，**因此需要对总体参数进行区间估计。</p>
+<p><strong>2.</strong> <strong>区间估计的基本原理是什么？</strong></p>
+<p>下面以总体均值的区间估计为例来说明区间估计的基本原理：</p>
+<p>首先，由样本均值的抽样分布可知，在重复抽样或无限总体抽样的情况下，$$ \overline{x}$$ ~ $$ N(\mu, \frac{\sigma^2}{n})$$，由此可以求出$$ \overline{x}$$ 落在总体均值$$\mu$$两侧任何一个抽样标准差范围内的概率，而实际估计中，是要估计未知总体均值$$\mu$$，由于$$ \overline{x}$$ 与$$\mu$$的距离是对称的，因此，当求得某个样本均值$$ \overline{x_0}$$ 落在$$\mu$$的两个标准差范围内，反过来，$$\mu$$也就被包含在以$$ \overline{x_0}$$ 为中心左右两个标准差范围内。</p>
+<p>因此约有95%的样本均值会落在$$\mu$$的两个标准差范围内时，也就是说，约有95%的样本均值所构造的两个标准差的区间会包含$$\mu$$。</p>
+<p><strong>3.</strong> <strong>置信区间、置信度、精度（或误差范围——精度的反义）及其关系</strong></p>
+<p><strong>置信区间：</strong> 是指在区间估计中，由样本统计量所构造的总体参数的估计区间。</p>
+<p><strong>置信水平（置信度）：</strong> 如果将构造置信区间的步骤重复多次，置信区间中包含总体参数真值的次数所占的比率就是置信度。</p>
+<p>**置信区间与置信度的关系：**当样本量给定时，置信区间的宽度随着置信水平的增大而增大；当置信水平固定时，置信区间的宽度随样本量的增大而减小，也就是说，较大的样本所提供的有关总体的信息要比较小的样本多。</p>
+<p>**置信度与精度的关系：**当样本量给定时，误差范围随着置信度的增大而增大，即精度随置信度的增加而减小；当置信度固定时，误差范围随着样本量的增大而减小。因此，可通过增加样本量来提高精度。</p>
+<p><strong>4.</strong> <strong>对置信区间的深层次思考</strong></p>
+<p>（1）  用某种方法构造的所有区间中，有95%的区间包含总体参数的真值，5%的区间不包含，该区间称为<strong>置信水平为95%的置信区间。</strong></p>
+<p>（2）   总体参数的真值是固定未知的，而样本构造的区间不是固定的；<strong>置信区间是一个随机区间</strong>，会因样本不同而变化，并且不是所有的区间都包含总体。</p>
+<p>（3）   实际估计中往往只抽取一个样本，因此用该样本所构造的<strong>特定区间“总是包含”或“绝对不包含”参数的真值</strong>，不存在“以多大的概率包含总体参数”的问题。概率只是用来衡量多次抽样得到的区间中大概有多少区间包含参数的真值。</p>
+<p>而“明天有80%的几率下雨”是贝叶斯学派的说法！</p>
+<p><strong>5.</strong> <strong>一个总体参数的区间估计（重复抽样或无限总体抽样情况下）</strong></p>
+<p><img src="/2022/03/05/%E6%8E%A8%E6%96%AD%E7%BB%9F%E8%AE%A1%E5%AD%A6/image-20220305163943512.png" alt="image-20220305163943512"></p>
+<p><strong>6.</strong> <strong>两个总体参数的区间估计（重复抽样或无限总体抽样情况下）</strong></p>
+<p><img src="/2022/03/05/%E6%8E%A8%E6%96%AD%E7%BB%9F%E8%AE%A1%E5%AD%A6/image-20220305164008254.png" alt="image-20220305164008254"></p>
+<p><strong>7.   样本量的确定</strong></p>
+<p>$$ \overline{x}$$ ~ $$ N(\mu, \frac{\sigma^2}{n})$$，标准化后：$$ z = \frac{\overline{x}-\mu}{\sigma / \sqrt{n}}$$ ~ $$ N(0, 1)$$</p>
+<p>假设显著性水平为$$\alpha$$， 则总体均值$$\mu$$ 在$$1-\alpha$$ 置信水平下单置信区间为：$$[\ \overline{x}\pm z_{\alpha/2}\ \frac{\sigma}{\sqrt{n}}\ ]$$</p>
+<p>计算过程：$$P(|\frac{\overline{x}-\mu}{\sigma/\sqrt{n}}|≤z_{\alpha/2}) = 1-\alpha =&gt;-z_{\alpha/2} ≤ \frac{\overline{x}-\mu}{\sigma/\sqrt{n}} ≤ z_{\alpha/2} =&gt; \overline{x}- z_{\alpha/2}\ \frac{\sigma}{\sqrt{n}} ≤ \mu ≤ \overline{x}+ z_{\alpha/2}\ \frac{\sigma}{\sqrt{n}}$$</p>
+<p>样本均值：$$\overline{x_0} = \frac{\sum_{i=1}^{n}{x_i}}{n}$$</p>
+<p>样本方差：$$s^2 = \frac{\sum_{i=1}^{n}(x_i - \overline{x_0})^2}{n-1}$$</p>
+<p>设估计误差为$$ E = z_{\alpha/2}\ \frac{\sigma}{\sqrt{n}}$$ ，则$$ n = \frac{(z_{\alpha/2}^2)\sigma^2}{E^2}$$</p>
+<h2 id="第三部分-假设检验">第三部分 假设检验</h2>
+<p>对总体参数提出假设的基础上，利用样本信息来判断假设是否成立。</p>
+<p><strong>1.  假设检验的基本思想、特点？</strong></p>
+<p>假设检验依据的基本原理是小概率原理，在检验中小概率通常人为事先指定。</p>
+<p>特点：（1）采用逻辑上的反正法，先假设为真，再进行检验是否有足够的理由拒绝该假设。（2）假设检验采用的反证法带有概率性质，即事先根据具体情况人为规定“小概率”。</p>
+<p><strong>2.  “假设检验的基本思路是：概率性质的反证法；主要依据的是：小概率事件原理”。</strong></p>
+<p>假设检验采用的是概率性质的反证法，遵循的推断依据是统计中的“小概率原理”，即小概率事件在一次试验中几乎不会发生。例如：一种产品的次品率假设其为0.01%，它是小概率，随机抽取一个产品是次品的概率“几乎不可能发生”，若发生了，则可断定该产品的次品率不是很小，否则我们就不会轻易抽到次品了。</p>
+<p>假设检验就是利用样本信息对事先假定的总体情况作出推断，它不是毫无根据的，而是在一定的统计概率下支持这种推断。</p>
+<p><strong>4.  为何在决策时要避免使用“接受原假设H0这样的措辞？</strong></p>
+<p>（1） 在假设检验时，当拒绝原假设时，表明样本提供的证据证明原假设是错误的；当没有拒绝原假设时，只是说明该样本没有足够的证据证明假设是错误的，而没法证明假设是正确的。</p>
+<p>（2） 此外，假设检验中通常是先控制犯第一类错误  ，而犯第二类错误的大小未知，故为了避免犯第二类错误的风险，一般要避免使用这种措辞。</p>
+<p><strong>5.  单侧检验的建立问题</strong></p>
+<p>（1）   先判断统计量是正还是负，若为正则选右侧，若为负则选左侧；</p>
+<p>（2）   若指标为正向指标，我们希望他越大越好，则选择右侧检验；</p>
+<p>（3）   若指标为正向指标，我们希望他越小越好，则选择左侧检验；</p>
+<p><strong>6.  假设检验中的两类错误及其区别与联系</strong></p>
+<p><strong>第一类错误</strong>是原假设  为真却被拒绝了，犯这种错误的概率记为$$\alpha$$，故又叫$$\alpha$$错误或弃真错误，其中 ， $$\alpha = P{第一类错误} = P{拒绝H_0|H_0正确} $$</p>
+<p><strong>第二类错误</strong>是原假设错误却没有被拒绝，犯这种错误的概率记为$$\beta$$，故又叫$$\beta$$错误或取伪错误，其中， $$\beta = P{第二类错误} = P{不拒绝H_0|H_0错误} $$</p>
+<p>在实际生活当中，第一类错误代表的是生产者的风险（不可的事却做了），第二类错误是代表的是使用者的风险（可做的事却没做）。</p>
+<p>**联系：**对于一定的样本量  ，如果减小错误  ，就会增大犯错误  的机会；若减小错误  ，也会增大犯错误  的机会。要使  和  同时变小，只有增大样本量。</p>
+<p><strong>7.  假设检验中应该先控制哪一类错误？</strong></p>
+<p>由于在样本量一定的情况下，  错误和  错误此消彼长，一般来说，发生哪一类错误的后果更严重，就应该首先控制哪类错误发生的概率。但由于犯第一类错误的概率可以由研究者事先控制，而犯第二类错误的概率则相对难以计算，因此在假设检验中，往往先控制第一类错误。</p>
+<p><strong>8.  临界值法及其优缺点？</strong></p>
+<p>临界值法是通过事先给定的显著性水平计算出临界值，给出拒绝域，然后再根据样本计算统计量看是否落入拒绝域中。其好处是，在给定了显著性水平后，拒绝域的位置就确定了，进行决策界限清晰，但缺陷是进行决策面临的风险是笼统的，而根据不同的样本结果进行决策时，面临的风险是有差别的，为了精确的反映风险度，可以利用P值进行决策。</p>
+<p><strong>9.  P 值及其决策原理？</strong></p>
+<p>P值就是当原假设为真时所得到的样本观测结果或更极端结果出现的概率。如果P值很小，说明这种情况发生的概率很小，而如果出现了，根据小概率原理，就有理由拒绝原假设，P值越小，拒绝原假设的理由就越充分。因为P值本身就代表了显著性水平，所以可以用它直接做决策，或者也可以与给定的显著性水平比较做决策。P值的大小取决于三个因素：样本数据与原假设的差异；样本量大小；假设参数的总体分布。</p>
+<p><strong>10.  置信区间法及其决策原理</strong></p>
+<p>当给定显著性水平后，可以用区间估计得出未知参数的置信区间，再通过计算样本统计量，看是否落入置信区间中，若落入则不拒绝，若不落入则拒绝。</p>
+<p><strong>11.  假设检验的步骤</strong></p>
+<p>第一步：提出假设。</p>
+<p>原假设  ：</p>
+<p>备择假设  ：</p>
+<p>第二步：计算检验统计量。</p>
+<p>​    ……</p>
+<p>第三步：做出决策。给定显著性水平  （  一般取0.01或0.05）。若采用临界值法决策，则先通过显著性水平  计算出临界值确定拒绝域，若检验统计量值落入拒绝域则拒绝原假设，否则就不拒绝原假设。</p>
+<p>若采用P值法决策，则先用样本数据计算出P值，再与事先人为给定的显著性水平比较，若P&lt;  则拒绝原假设；否则就不拒绝原假设。</p>
 
       
     </div>
+    
+    
+    
 
+    
+
+    
+
+    
+
+    <footer class="post-footer">
+      
+        <div class="post-tags">
+          
+            <a href="/tags/%E7%BB%9F%E8%AE%A1%E6%8E%A8%E6%96%AD/" rel="tag"># 统计推断</a>
+          
+        </div>
+      
+
+      
+      
+      
+
+      
+        <div class="post-nav">
+          <div class="post-nav-next post-nav-item">
+            
+              <a href="/2022/03/05/%E6%8F%8F%E8%BF%B0%E7%BB%9F%E8%AE%A1%E5%AD%A6/" rel="next" title="描述统计学">
+                <i class="fa fa-chevron-left"></i> 描述统计学
+              </a>
+            
+          </div>
+
+          <span class="post-nav-divider"></span>
+
+          <div class="post-nav-prev post-nav-item">
+            
+          </div>
+        </div>
+      
+
+      
+      
+    </footer>
   </div>
   
   
   
+  </article>
 
-  
+
+
+    <div class="post-spread">
+      
+    </div>
+  </div>
 
 
           </div>
@@ -335,6 +561,10 @@
 
 
           
+
+  
+
+
 
         </div>
         
@@ -355,8 +585,17 @@
       
 
       
+        <ul class="sidebar-nav motion-element">
+          <li class="sidebar-nav-toc sidebar-nav-active" data-target="post-toc-wrap">
+            文章目录
+          </li>
+          <li class="sidebar-nav-overview" data-target="site-overview-wrap">
+            站点概览
+          </li>
+        </ul>
+      
 
-      <section class="site-overview-wrap sidebar-panel sidebar-panel-active">
+      <section class="site-overview-wrap sidebar-panel">
         <div class="site-overview">
           <div class="site-author motion-element" itemprop="author" itemscope itemtype="http://schema.org/Person">
             
@@ -427,6 +666,22 @@
         </div>
       </section>
 
+      
+      <!--noindex-->
+        <section class="post-toc-wrap motion-element sidebar-panel sidebar-panel-active">
+          <div class="post-toc">
+
+            
+              
+            
+
+            
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-2"><a class="nav-link" href="#%E7%AC%AC%E4%B8%80%E9%83%A8%E5%88%86-%E6%8A%BD%E6%A0%B7%E5%88%86%E5%B8%83"><span class="nav-text">第一部分 抽样分布</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E7%AC%AC%E4%BA%8C%E9%83%A8%E5%88%86-%E5%8F%82%E6%95%B0%E4%BC%B0%E8%AE%A1"><span class="nav-text">第二部分 参数估计</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E7%AC%AC%E4%B8%89%E9%83%A8%E5%88%86-%E5%81%87%E8%AE%BE%E6%A3%80%E9%AA%8C"><span class="nav-text">第三部分 假设检验</span></a></li></ol></div>
+            
+
+          </div>
+        </section>
+      <!--/noindex-->
       
 
       
@@ -579,6 +834,10 @@
 
 
   
+  <script type="text/javascript" src="/js/src/scrollspy.js?v=5.1.4"></script>
+<script type="text/javascript" src="/js/src/post-details.js?v=5.1.4"></script>
+
+
 
   
 
