@@ -6,7 +6,7 @@
   <link href="http://guiyiblog.cn/atom.xml" rel="self"/>
   
   <link href="http://guiyiblog.cn/"/>
-  <updated>2022-03-05T11:13:26.383Z</updated>
+  <updated>2022-03-05T12:05:20.137Z</updated>
   <id>http://guiyiblog.cn/</id>
   
   <author>
@@ -21,7 +21,7 @@
     <link href="http://guiyiblog.cn/2022/03/05/%E6%8E%A8%E6%96%AD%E7%BB%9F%E8%AE%A1%E5%AD%A6/"/>
     <id>http://guiyiblog.cn/2022/03/05/%E6%8E%A8%E6%96%AD%E7%BB%9F%E8%AE%A1%E5%AD%A6/</id>
     <published>2022-03-05T11:37:08.000Z</published>
-    <updated>2022-03-05T11:13:26.383Z</updated>
+    <updated>2022-03-05T12:05:20.137Z</updated>
     
     
     <summary type="html">&lt;p&gt;本文主要介绍使用样本推断总体的统计学方法，主要包括参数估计和假设检验。参数估计使用样本统计量估计总体参数，假设检验则使用样本数据推断对某一总体的假设是否成立，两者的理论基础都是大数定律和中心极限定理。&lt;/p&gt;</summary>
@@ -40,7 +40,7 @@
     <link href="http://guiyiblog.cn/2022/03/05/%E6%8F%8F%E8%BF%B0%E7%BB%9F%E8%AE%A1%E5%AD%A6/"/>
     <id>http://guiyiblog.cn/2022/03/05/%E6%8F%8F%E8%BF%B0%E7%BB%9F%E8%AE%A1%E5%AD%A6/</id>
     <published>2022-03-05T06:37:08.000Z</published>
-    <updated>2022-03-05T09:05:45.260Z</updated>
+    <updated>2022-03-05T12:02:34.021Z</updated>
     
     
     <summary type="html">&lt;p&gt;本文主要介绍了数据分析统计基础——统计描述。数据分析的前提就是要学会观察数据，了解数据，统计描述包括对数据的图表描述和统计量描述，它能让我们对数据有一个直观的认识，比如数据是否完整、是否存在异常、服从什么分布、存在什么规律等，为数据预处理和数据分析做准备。&lt;/p&gt;</summary>

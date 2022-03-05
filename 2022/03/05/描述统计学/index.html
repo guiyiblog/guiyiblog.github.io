@@ -5,7 +5,7 @@
   
 
 
-<html class="theme-next gemini use-motion" lang="zh-Hans">
+<html class="theme-next mist use-motion" lang="zh-Hans">
 <head>
   <meta charset="UTF-8"/>
 <meta http-equiv="X-UA-Compatible" content="IE=edge" />
@@ -90,7 +90,7 @@
 <meta property="og:image" content="http://guiyiblog.cn/2022/03/05/%E6%8F%8F%E8%BF%B0%E7%BB%9F%E8%AE%A1%E5%AD%A6/image-20220305114123496.png">
 <meta property="og:image" content="http://guiyiblog.cn/2022/03/05/%E6%8F%8F%E8%BF%B0%E7%BB%9F%E8%AE%A1%E5%AD%A6/image-20220305115609745.png">
 <meta property="article:published_time" content="2022-03-05T06:37:08.000Z">
-<meta property="article:modified_time" content="2022-03-05T09:05:45.260Z">
+<meta property="article:modified_time" content="2022-03-05T12:02:34.021Z">
 <meta property="article:author" content="归一">
 <meta property="article:tag" content="描述统计">
 <meta name="twitter:card" content="summary">
@@ -102,7 +102,7 @@
   var NexT = window.NexT || {};
   var CONFIG = {
     root: '',
-    scheme: 'Gemini',
+    scheme: 'Mist',
     version: '5.1.4',
     sidebar: {"position":"left","display":"always","offset":12,"b2t":false,"scrollpercent":true,"onmobile":false},
     fancybox: true,
@@ -570,12 +570,12 @@
 <p><strong>数值型数据：方差和标准差</strong></p>
 <p><strong>方差</strong>是各变量值与其均值离差平方的平均数。方差的平方根成为<strong>标准差</strong>。它们是实际中应用最广的数值型数据离散程度测度值。其值越大，说明数据越分散。此外，还有极差、平均差等可以对离散程度进行测度。</p>
 <p><strong>此外，</strong> 还有极差，平均差等统计量有时也可以反映数值型数据的离散程度，不过极差描述的效果不太好，而平均差则不方便计算，故不常用。</p>
-<p>（注：数值型数据的<strong>相对位置度量</strong>用<strong>标准分数（sc）</strong> $$ z_i = \frac{x_i-\overline{x}}{s}$$，如z=-1.5，则表示该数值低于平均数的1.5倍标准差）</p>
+<p>（注：数值型数据的<strong>相对位置度量</strong>用<strong>标准分数（sc）</strong> $ z_i = \frac{x_i-\overline{x}}{s}$，如z=-1.5，则表示该数值低于平均数的1.5倍标准差）</p>
 <p><strong>三、</strong> <strong>分布形状度量：偏态系数、峰态系数</strong></p>
 <p><strong>偏态系数</strong>是对数据分布对称性的测度，当分布对称时，其值为0；分布左偏时，其值为负；分布右偏时，其值为正。</p>
 <p><strong>峰态系数</strong>是对数据分布平峰或尖峰程度的测度，它是通过与标准正态分布的峰态系数进行比较来实现的，当分布为正态时，其值为0；分布为尖峰时，其值为正；分布为平峰时，其值为负。</p>
 <p><strong>四、</strong> <strong>相对离散程度：离散（变异）系数</strong></p>
-<p><strong>离散系数</strong>是一组数据的标准差与其相应的平均数之比，其计算公式为： $$ v_s = \frac{s}{\overline{x}}$$  ，它主要用来比较不同样本之间的离散程度。离散系数越大，说明数据的离散程度越大；离散系数越小，则说明数据的离散程度越小。</p>
+<p><strong>离散系数</strong>是一组数据的标准差与其相应的平均数之比，其计算公式为： $ v_s = \frac{s}{\overline{x}}$  ，它主要用来比较不同样本之间的离散程度。离散系数越大，说明数据的离散程度越大；离散系数越小，则说明数据的离散程度越小。</p>
 <p><strong>五、统计分组（高级变量——&gt;低级变量）</strong></p>
 <p>根据统计研究的目的和客观现象的内在特点，按某个标志（或几个标志）把被研究的总体划分为若干个不同性质的组，称为<strong>统计分组。</strong></p>
 <p><strong>统计分组的作用有：</strong>（1）发现社会经济现象的特点和规律；（2）将复杂的社会经济现象划分为性质不同的各种类型；（3）反映总体内部结构；（4）揭示现象之间的依存关系。</p>
@@ -805,7 +805,7 @@
 
 
 
-  <div class="theme-info">主题 &mdash; <a class="theme-link" target="_blank" href="https://github.com/iissnan/hexo-theme-next">NexT.Gemini</a> v5.1.4</div>
+  <div class="theme-info">主题 &mdash; <a class="theme-link" target="_blank" href="https://github.com/iissnan/hexo-theme-next">NexT.Mist</a> v5.1.4</div>
 
 
 
@@ -916,13 +916,6 @@
 
   
   
-
-
-  <script type="text/javascript" src="/js/src/affix.js?v=5.1.4"></script>
-
-  <script type="text/javascript" src="/js/src/schemes/pisces.js?v=5.1.4"></script>
-
-
 
   
   <script type="text/javascript" src="/js/src/scrollspy.js?v=5.1.4"></script>
@@ -1322,7 +1315,7 @@
         }
       });
     </script>
-    <script type="text/javascript" src="//cdn.bootcss.com/mathjax/2.7.1/latest.js?config=TeX-AMS-MML_HTMLorMML"></script>
+    <script type="text/javascript" src="//cdn.staticfile.org/MathJax/MathJax-2.6-latest/MathJax.js?config=TeX-AMS-MML_HTMLorMML"></script>
   
 
 
