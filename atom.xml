@@ -6,7 +6,7 @@
   <link href="http://guiyiblog.cn/atom.xml" rel="self"/>
   
   <link href="http://guiyiblog.cn/"/>
-  <updated>2022-03-06T09:52:34.301Z</updated>
+  <updated>2022-03-06T10:02:08.823Z</updated>
   <id>http://guiyiblog.cn/</id>
   
   <author>
@@ -21,16 +21,13 @@
     <link href="http://guiyiblog.cn/2022/03/06/%E5%B8%B8%E7%94%A8%E7%BB%9F%E8%AE%A1%E6%8E%A8%E6%96%AD%E6%96%B9%E6%B3%95/"/>
     <id>http://guiyiblog.cn/2022/03/06/%E5%B8%B8%E7%94%A8%E7%BB%9F%E8%AE%A1%E6%8E%A8%E6%96%AD%E6%96%B9%E6%B3%95/</id>
     <published>2022-03-06T06:37:08.000Z</published>
-    <updated>2022-03-06T09:52:34.301Z</updated>
+    <updated>2022-03-06T10:02:08.823Z</updated>
     
     
     <summary type="html">&lt;p&gt;本文主要介绍基于参数估计和假设检验的统计推断应用方法，主要包括：&lt;/p&gt;
 &lt;p&gt;（1）分类数据分析 &lt;strong&gt;（统计的是各类别样本频数）&lt;/strong&gt; ：&lt;/p&gt;
 &lt;p&gt;① 拟合优度分析：检验一个分类变量是否符合某一理论分布；或一个分类变量（可以是多分类）对另一个&lt;strong&gt;二分类&lt;/strong&gt;变量对影响是否显著；&lt;/p&gt;
-&lt;p&gt;② 独立性检验（或列联分析）：检验两个分类变量交叉是否是独立的；&lt;/p&gt;
-&lt;p&gt;（2）数值型数据分析 &lt;strong&gt;（统计的是样本的某个指标）&lt;/strong&gt; ：&lt;/p&gt;
-&lt;p&gt;① 方差分析：检验分类变量对数值型变量对影响是否显著；（若分类变量为&lt;strong&gt;二分类变量&lt;/strong&gt;则可以使用z检验或t检验）&lt;/p&gt;
-&lt;p&gt;② 回归分析：用于预测一个或多个自变量对某一个因变量的影响趋势，量化自变量对因变量的影响程度&lt;/p&gt;</summary>
+&lt;p&gt;② 独立性检验（或列联分析）：检验两个分类变量交叉是否是独立的；&lt;/p&gt;</summary>
     
     
     
