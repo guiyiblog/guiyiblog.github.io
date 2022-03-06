@@ -1,0 +1,1513 @@
+<!DOCTYPE html>
+
+
+
+  
+
+
+<html class="theme-next mist use-motion" lang="zh-Hans">
+<head>
+  <meta charset="UTF-8"/>
+<meta http-equiv="X-UA-Compatible" content="IE=edge" />
+<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1"/>
+<meta name="theme-color" content="#222">
+
+
+
+
+
+
+
+
+
+<meta http-equiv="Cache-Control" content="no-transform" />
+<meta http-equiv="Cache-Control" content="no-siteapp" />
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+  
+  
+  <link href="/lib/fancybox/source/jquery.fancybox.css?v=2.1.5" rel="stylesheet" type="text/css" />
+
+
+
+
+
+
+
+<link href="/lib/font-awesome/css/font-awesome.min.css?v=4.6.2" rel="stylesheet" type="text/css" />
+
+<link href="/css/main.css?v=5.1.4" rel="stylesheet" type="text/css" />
+
+
+  <link rel="apple-touch-icon" sizes="180x180" href="/images/header.jpg?v=5.1.4">
+
+
+  <link rel="icon" type="image/png" sizes="32x32" href="/images/header.jpg?v=5.1.4">
+
+
+  <link rel="icon" type="image/png" sizes="16x16" href="/images/header.jpg?v=5.1.4">
+
+
+
+
+
+
+  <meta name="keywords" content="统计推断," />
+
+
+
+
+
+  <link rel="alternate" href="/atom.xml" title="Guiyi's blog" type="application/atom+xml" />
+
+
+
+
+
+
+<meta name="description" content="本文主要介绍基于参数估计和假设检验的统计推断应用方法，主要包括： （1）分类数据分析 （统计的是各类别样本频数） ： ① 拟合优度分析：检验一个分类变量是否符合某一理论分布；或一个分类变量（可以是多分类）对另一个二分类变量对影响是否显著； ② 独立性检验（或列联分析）：检验两个分类变量交叉是否是独立的； （2）数值型数据分析 （统计的是样本的某个指标） ： ① 方差分析：检验分类变量对数值型变量对">
+<meta property="og:type" content="article">
+<meta property="og:title" content="常用统计推断方法">
+<meta property="og:url" content="http://guiyiblog.cn/2022/03/06/%E5%B8%B8%E7%94%A8%E7%BB%9F%E8%AE%A1%E6%8E%A8%E6%96%AD%E6%96%B9%E6%B3%95/index.html">
+<meta property="og:site_name" content="Guiyi&#39;s blog">
+<meta property="og:description" content="本文主要介绍基于参数估计和假设检验的统计推断应用方法，主要包括： （1）分类数据分析 （统计的是各类别样本频数） ： ① 拟合优度分析：检验一个分类变量是否符合某一理论分布；或一个分类变量（可以是多分类）对另一个二分类变量对影响是否显著； ② 独立性检验（或列联分析）：检验两个分类变量交叉是否是独立的； （2）数值型数据分析 （统计的是样本的某个指标） ： ① 方差分析：检验分类变量对数值型变量对">
+<meta property="og:locale">
+<meta property="og:image" content="http://guiyiblog.cn/2022/03/06/%E5%B8%B8%E7%94%A8%E7%BB%9F%E8%AE%A1%E6%8E%A8%E6%96%AD%E6%96%B9%E6%B3%95/image-20220306154751657.png">
+<meta property="og:image" content="http://guiyiblog.cn/2022/03/06/%E5%B8%B8%E7%94%A8%E7%BB%9F%E8%AE%A1%E6%8E%A8%E6%96%AD%E6%96%B9%E6%B3%95/image-20220306162750746.png">
+<meta property="og:image" content="http://guiyiblog.cn/2022/03/06/%E5%B8%B8%E7%94%A8%E7%BB%9F%E8%AE%A1%E6%8E%A8%E6%96%AD%E6%96%B9%E6%B3%95/image-20220306170826538.png">
+<meta property="og:image" content="http://guiyiblog.cn/2022/03/06/%E5%B8%B8%E7%94%A8%E7%BB%9F%E8%AE%A1%E6%8E%A8%E6%96%AD%E6%96%B9%E6%B3%95/image-20220306164900612.png">
+<meta property="og:image" content="http://guiyiblog.cn/2022/03/06/%E5%B8%B8%E7%94%A8%E7%BB%9F%E8%AE%A1%E6%8E%A8%E6%96%AD%E6%96%B9%E6%B3%95/image-20220306165919218.png">
+<meta property="og:image" content="http://guiyiblog.cn/2022/03/06/%E5%B8%B8%E7%94%A8%E7%BB%9F%E8%AE%A1%E6%8E%A8%E6%96%AD%E6%96%B9%E6%B3%95/image-20220306171018318.png">
+<meta property="og:image" content="http://guiyiblog.cn/2022/03/06/%E5%B8%B8%E7%94%A8%E7%BB%9F%E8%AE%A1%E6%8E%A8%E6%96%AD%E6%96%B9%E6%B3%95/image-20220306172705587.png">
+<meta property="article:published_time" content="2022-03-06T06:37:08.000Z">
+<meta property="article:modified_time" content="2022-03-06T09:52:34.301Z">
+<meta property="article:author" content="归一">
+<meta property="article:tag" content="统计推断">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:image" content="http://guiyiblog.cn/2022/03/06/%E5%B8%B8%E7%94%A8%E7%BB%9F%E8%AE%A1%E6%8E%A8%E6%96%AD%E6%96%B9%E6%B3%95/image-20220306154751657.png">
+
+
+
+<script type="text/javascript" id="hexo.configurations">
+  var NexT = window.NexT || {};
+  var CONFIG = {
+    root: '',
+    scheme: 'Mist',
+    version: '5.1.4',
+    sidebar: {"position":"left","display":"always","offset":12,"b2t":false,"scrollpercent":true,"onmobile":false},
+    fancybox: true,
+    tabs: true,
+    motion: {"enable":true,"async":false,"transition":{"post_block":"fadeIn","post_header":"slideDownIn","post_body":"slideDownIn","coll_header":"slideLeftIn","sidebar":"slideUpIn"}},
+    duoshuo: {
+      userId: '0',
+      author: '博主'
+    },
+    algolia: {
+      applicationID: '',
+      apiKey: '',
+      indexName: '',
+      hits: {"per_page":10},
+      labels: {"input_placeholder":"Search for Posts","hits_empty":"We didn't find any results for the search: ${query}","hits_stats":"${hits} results found in ${time} ms"}
+    }
+  };
+</script>
+
+
+
+  <link rel="canonical" href="http://guiyiblog.cn/2022/03/06/常用统计推断方法/"/>
+
+
+
+
+
+  <title>常用统计推断方法 | Guiyi's blog</title>
+  
+
+
+
+
+
+
+
+
+<meta name="generator" content="Hexo 5.4.1"></head>
+
+<body itemscope itemtype="http://schema.org/WebPage" lang="zh-Hans">
+
+  
+  
+    
+  
+
+  <div class="container sidebar-position-left page-post-detail">
+    <div class="headband"></div>
+
+    <header id="header" class="header" itemscope itemtype="http://schema.org/WPHeader">
+      <div class="header-inner"><div class="site-brand-wrapper">
+  <div class="site-meta ">
+    
+
+    <div class="custom-logo-site-title">
+      <a href="/"  class="brand" rel="start">
+        <span class="logo-line-before"><i></i></span>
+        <span class="site-title">Guiyi's blog</span>
+        <span class="logo-line-after"><i></i></span>
+      </a>
+    </div>
+      
+        <p class="site-subtitle"></p>
+      
+  </div>
+
+  <div class="site-nav-toggle">
+    <button>
+      <span class="btn-bar"></span>
+      <span class="btn-bar"></span>
+      <span class="btn-bar"></span>
+    </button>
+  </div>
+</div>
+
+<nav class="site-nav">
+  
+
+  
+    <ul id="menu" class="menu">
+      
+        
+        <li class="menu-item menu-item-home">
+          <a href="/" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-home"></i> <br />
+            
+            首页
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-about">
+          <a href="/about/" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-user"></i> <br />
+            
+            关于
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-tags">
+          <a href="/tags/" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-tags"></i> <br />
+            
+            标签
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-categories">
+          <a href="/categories/" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-th"></i> <br />
+            
+            分类
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-archives">
+          <a href="/archives/" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-archive"></i> <br />
+            
+            归档
+          </a>
+        </li>
+      
+
+      
+        <li class="menu-item menu-item-search">
+          
+            <a href="javascript:;" class="popup-trigger">
+          
+            
+              <i class="menu-item-icon fa fa-search fa-fw"></i> <br />
+            
+            搜索
+          </a>
+        </li>
+      
+    </ul>
+  
+
+  
+    <div class="site-search">
+      
+  <div class="popup search-popup local-search-popup">
+  <div class="local-search-header clearfix">
+    <span class="search-icon">
+      <i class="fa fa-search"></i>
+    </span>
+    <span class="popup-btn-close">
+      <i class="fa fa-times-circle"></i>
+    </span>
+    <div class="local-search-input-wrapper">
+      <input autocomplete="off"
+             placeholder="搜索..." spellcheck="false"
+             type="text" id="local-search-input">
+    </div>
+  </div>
+  <div id="local-search-result"></div>
+</div>
+
+
+
+    </div>
+  
+</nav>
+
+
+
+ </div>
+    </header>
+
+    <main id="main" class="main">
+      <div class="main-inner">
+        <div class="content-wrap">
+          <div id="content" class="content">
+            
+
+  <div id="posts" class="posts-expand">
+    
+
+  
+
+  
+  
+  
+
+  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
+  
+  
+  
+  <div class="post-block">
+    <link itemprop="mainEntityOfPage" href="http://guiyiblog.cn/2022/03/06/%E5%B8%B8%E7%94%A8%E7%BB%9F%E8%AE%A1%E6%8E%A8%E6%96%AD%E6%96%B9%E6%B3%95/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="name" content="">
+      <meta itemprop="description" content="">
+      <meta itemprop="image" content="/images/header.jpg">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="Guiyi's blog">
+    </span>
+
+    
+      <header class="post-header">
+
+        
+        
+          <h1 class="post-title" itemprop="name headline">常用统计推断方法</h1>
+        
+
+        <div class="post-meta">
+          <span class="post-time">
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-calendar-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">发表于</span>
+              
+              <time title="创建于" itemprop="dateCreated datePublished" datetime="2022-03-06T14:37:08+08:00">
+                2022-03-06
+              </time>
+            
+
+            
+
+            
+          </span>
+
+          
+            <span class="post-category" >
+            
+              <span class="post-meta-divider">|</span>
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-folder-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">分类于</span>
+              
+              
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+                  <a href="/categories/%E7%BB%9F%E8%AE%A1%E5%AD%A6/" itemprop="url" rel="index">
+                    <span itemprop="name">统计学</span>
+                  </a>
+                </span>
+
+                
+                
+              
+            </span>
+          
+
+          
+            
+          
+
+          
+          
+
+          
+
+          
+           <span class="post-meta-divider">|</span>
+           <span id="busuanzi_value_page_pv"></span>次阅读
+          
+
+          
+
+          
+
+        </div>
+      </header>
+    
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
+      
+      
+
+      
+        <p>本文主要介绍基于参数估计和假设检验的统计推断应用方法，主要包括：</p>
+<p>（1）分类数据分析 <strong>（统计的是各类别样本频数）</strong> ：</p>
+<p>① 拟合优度分析：检验一个分类变量是否符合某一理论分布；或一个分类变量（可以是多分类）对另一个<strong>二分类</strong>变量对影响是否显著；</p>
+<p>② 独立性检验（或列联分析）：检验两个分类变量交叉是否是独立的；</p>
+<p>（2）数值型数据分析 <strong>（统计的是样本的某个指标）</strong> ：</p>
+<p>① 方差分析：检验分类变量对数值型变量对影响是否显著；（若分类变量为<strong>二分类变量</strong>则可以使用z检验或t检验）</p>
+<p>② 回归分析：用于预测一个或多个自变量对某一个因变量的影响趋势，量化自变量对因变量的影响程度</p>
+  <span id="more"></span>
+<h2 id="1-分类数据分析">1. 分类数据分析</h2>
+<p><img src="/2022/03/06/%E5%B8%B8%E7%94%A8%E7%BB%9F%E8%AE%A1%E6%8E%A8%E6%96%AD%E6%96%B9%E6%B3%95/image-20220306154751657.png" alt="image-20220306154751657"></p>
+<h3 id="1-1-拟合优度检验">1.1 拟合优度检验</h3>
+<p>分析的是分类变量各类别是否有显著性差异，如某种比例指标，如满意度、生存率等。</p>
+<p>以<strong>男女生对食堂的满意度</strong>为例进行解释：</p>
+<p>满意度本质也是一个分类变量 $X$ = “是否满意”，其中有两个变量值$x_1$ = “满意”，$x_2$ = “不满意&quot;，假设抽样一共1000人，一共300人满意，其中男生100人，女生200人，则理论分布为：</p>
+<p>$P(X = 满意|Y=男生) = P(X = 满意|Y=女生) = 0.3 $ ，</p>
+<p>实际分布则为：</p>
+<p>$P(X_0 = 满意|Y_0=男生) = 0.1;P(X = 满意|Y=女生) = 0.2 $</p>
+<p>检验的就是检验样本的实际频数分布是否和理论频数分布有实际差异，使用的检验统计量为（<a target="_blank" rel="noopener" href="https://zhuanlan.zhihu.com/p/131286213">$\chi^2$统计量的推断过程</a>）：</p>
+<p><img src="/2022/03/06/%E5%B8%B8%E7%94%A8%E7%BB%9F%E8%AE%A1%E6%8E%A8%E6%96%AD%E6%96%B9%E6%B3%95/image-20220306162750746.png" alt="image-20220306162750746"></p>
+<p>若检验结果显著，则说明差异显著，不同性别对食堂满意度有显著差异。</p>
+<p><strong>一、基本思想</strong></p>
+<p><strong>拟合优度检验主要</strong>用于检验 <strong>一个分类变量各类别的观察频数与期望频数是否有显著性差异，</strong> 或者说是检验一个分类变量各类别观察频数的分布是否符合某一理论分布。</p>
+<p><strong>二、基本步骤</strong></p>
+<p><strong>第1步：提出假设</strong></p>
+<p><strong>第2步：计算期望频数和检验统计量</strong></p>
+<p><strong>第3步：做出决策</strong></p>
+<h3 id="1-2-独立性检验">1.2 独立性检验</h3>
+<p><strong>注意区分：</strong></p>
+<p>拟合优度检验检验的是一个分类变量各类别的某种特征是否有显著差异，检验的是这种特征是否与该分类变量有关，这种特征是属于该分类变量的，问题一般为  <strong>“检验×××分类变量各类别的×××是否有显著差异”</strong> 。</p>
+<p>而独立性检验则是分析两种分类变量之间的相关关系，一般没有从属关系，问题一般是 <strong>“检验×××分类变量跟×××变量是否有相关关系”</strong> ，如”性别对身高是否有影响“。注意问题是要分析某种分类变量的某种特征还是分析两个分类变量的关系！</p>
+<p><strong>一、基本思想</strong></p>
+<p>因为 <strong>独立性检验</strong> 主要是用于分析判断两个分类变量是否独立。它是在假设两分类变量独立的情况下计算出理论频数，从而再与观察频数作比较，看是否有显著性差异。</p>
+<p><strong>二、基本步骤：</strong></p>
+<p><strong>第1步：提出假设</strong></p>
+<p><strong>第2步：计算期望频数和检验统计量</strong></p>
+<p><strong>第3步：做出决策</strong></p>
+<p><strong>第4步：若拒绝原假设，还可对两分类变量的相关性程度进行进一步测量，测量方法有：① $\varphi$相关系数；② c系数； ③ V系数。</strong></p>
+<p>​</p>
+<h2 id="2-数值型数据分析">2. 数值型数据分析</h2>
+<h3 id="2-1-方差分析">2.1 方差分析</h3>
+<p><img src="/2022/03/06/%E5%B8%B8%E7%94%A8%E7%BB%9F%E8%AE%A1%E6%8E%A8%E6%96%AD%E6%96%B9%E6%B3%95/image-20220306170826538.png" alt="image-20220306170826538"></p>
+<p><strong>1.</strong>   <strong>方差分析的基本思想是什么？</strong></p>
+<p>方差分析是通过数据误差来源的分析来判断不同总体的均值是否相等，进而判断分类型自变量对数值型因变量是否有显著性影响。其基本思想如下：</p>
+<p>（1）  误差分解</p>
+<p>在方差分析中，数据的误差是用平方和来表示的，总平方和可以分解为组间平方和与组内平方和。组内误差只包含随机误差，而组间误差既包含随机误差，也包含系统误差。</p>
+<p>（2）  误差分析</p>
+<p>若组间误差中只包含随机误差，而没有系统误差，则组间误差和组内误差经过平均后的比值就应接近于1；反之，若组间误差包含系统误差，那比值就会大于1。当这个比值大到某种程度时，就认为因素的不同水平之间存在显著差异，即分类型自变量对数值型因变量有影响。</p>
+<p><strong>2.</strong>   <strong>什么是方差分析？它与总体均值的t检验或z检验有什么不同？其优势是什么？</strong></p>
+<p><strong>（要检验多个总体均值是否相等，为什么不作两两比较，而用方差分析法？）</strong></p>
+<p>方差分析是通过数据误差来源的分析来判断不同总体的均值是否相等，进而判断分类型自变量对数值型因变量是否有显著性影响。</p>
+<p><strong>差异：</strong></p>
+<p>总体均值的t检验或z检验，一次只能研究两个样本，如果要检验多个总体的均值是否相等，两两比较那会很繁琐，且多次检验还会使犯第一类错误的概率相应增加；</p>
+<p>方差分析则是同时考虑所有样本，因此排除了错误累积的概率，从而犯第一类错误的概率会小很多。</p>
+<p><strong>优势：</strong></p>
+<p>方差分析不仅可以提高检验效率，同时由于它是将所有的样本信息结合在一起，也增加了分析的可靠性。</p>
+<p><strong>3.</strong>   <strong>简述方差分析的结构并对其进行解释。</strong></p>
+<p>方差分析是通过数据误差来源的分析来判断不同总体的均值是否相等，进而判断分类型自变量对数值型因变量是否有显著性影响。方差分析的结构如下：</p>
+<p>（1）  组内误差</p>
+<p>它来自水平内部的数据误差，反映一个样本内部数据的离散程度，只含随机误差。反映组内误差大小的平方和称为组内平方和，记为SSE。它反映了每个样本内各观测值的离散状况。</p>
+<p>（2）  组间误差</p>
+<p>它来自不同水平之间的数据误差，反映不同样本之间数据的离散程度，包含随机误差和系统误差。反映组间误差大小的平方和称为组内平方和，记为SSA。它反映了样本均值之间的差异程度。</p>
+<p>（3）  全部数据误差</p>
+<p>它包含了随机误差和系统误差在内的所有误差。反映全部数据误差大小的平方和称为总平方和，记为SST。</p>
+<p>总平方和（SST）=组内平方和（SSE）+组间平方和（SSA），它反映全部观测值的离散状况。</p>
+<p>​</p>
+<h4 id="2-1-1-单因素方差分析（完全随机化设计）">2.1.1 单因素方差分析（完全随机化设计）</h4>
+<p>方差分析主要是通过检验各总体的均值是否相等来判断一个分类型自变量对一个数值型因变量是否有显著影响。</p>
+<p>它是通过对数据误差来源的分析来判断不同总体均值是否相等。</p>
+<p><strong>基本步骤如下：</strong></p>
+<p><strong>（1）</strong> <strong>方差分析的基本假定及检验</strong></p>
+<ol>
+<li>
+<p><strong>正态性假定：</strong> 每个总体都应服从正态分布。（检验方法有：P-P图、Q-Q图、Shapiro-Wilk检验、K-S检验等）</p>
+</li>
+<li>
+<p><strong>方差齐性假定：</strong> 每个总体的方差$\sigma^2$必须相同。（检验方法有：Hartley检验、Bartlett检验、修正的Bartlett检验、Levene检验等）</p>
+</li>
+<li>
+<p><strong>独立性假定：</strong> 各观测值之间相互独立。（实验前确保是独立的）</p>
+</li>
+</ol>
+<p><strong>（2）效应检验</strong></p>
+<p><strong>第1步：提出假设</strong></p>
+<p>​    原假设：$H_0:\alpha_i = 0(i=1,2,…,a)$（因素A没有处理效应）</p>
+<p>​    备择假设：$H_1:\alpha_i$至少有一个不为0（因素A有处理效应）</p>
+<p><strong>第2步：计算单因素方差分析表</strong></p>
+<p><img src="/2022/03/06/%E5%B8%B8%E7%94%A8%E7%BB%9F%E8%AE%A1%E6%8E%A8%E6%96%AD%E6%96%B9%E6%B3%95/image-20220306164900612.png" alt="image-20220306164900612"></p>
+<p><strong>第3步：做出决策。</strong> 给定显著性水平$\alpha$ （  一般取0.01或0.05），先用样本数据计算出P值，若P&lt;$\alpha$则拒绝原假设；否则就不拒绝原假设。</p>
+<p><strong>第4步：</strong> 若拒绝原假设，还需对自变量和因变量进行关系强度测量（$R^2 = \frac{SSA}{SST}$）和多重比较（用来进一步检验到底哪些均值之间存在差异。常用LSD,HSD方法）。</p>
+<h4 id="2-1-2-双因素方差分析">2.1.2 双因素方差分析</h4>
+<p><strong>一、</strong>    <strong>只考虑主效应的双因素方差分析（随机化区组设计）</strong></p>
+<p><strong>二、</strong>    <strong>考虑交互作用的双因素方差分析（析因设计）</strong></p>
+<p>方差分析主要是通过检验各总体的均值是否相等来判断两个分类型自变量对一个数值型因变量是否有显著影响。它通过对数据误差来源的分析来判断不同总体均值是否相等。</p>
+<p><strong>基本步骤如下：</strong></p>
+<p>（1）方差分析的基本假定及检验</p>
+<p>（2）效应检验</p>
+<p><strong>第1步：提出假设</strong></p>
+<p><strong>检验因素A的假设：</strong></p>
+<p>​    原假设：$H_0:\alpha_i = 0(i=1,2,…,a)$（因素A没有处理效应）</p>
+<p>​    备择假设：$H_1:\alpha_i$至少有一个不为0（因素A有处理效应）</p>
+<p><strong>检验因素B的假设：</strong></p>
+<p>​    原假设：$H_0:\beta_i = 0(i=1,2,…,b)$（因素A没有处理效应）</p>
+<p>​    备择假设：$H_1:\beta_i$至少有一个不为0（因素A有处理效应）</p>
+<p><strong>检验交互效应的假设：</strong></p>
+<p>​    原假设：$H_0:\gamma_{ij} = 0$（无交互效应）</p>
+<p>​    备择假设：$H_1:\gamma_{ij}$至少有一个不为0（有交互效应）</p>
+<p><strong>第2步：计算方差分析表</strong></p>
+<p><img src="/2022/03/06/%E5%B8%B8%E7%94%A8%E7%BB%9F%E8%AE%A1%E6%8E%A8%E6%96%AD%E6%96%B9%E6%B3%95/image-20220306165919218.png" alt="image-20220306165919218"></p>
+<p><strong>第3步：做出决策。</strong> 给定显著性水平$\alpha$ （  一般取0.01或0.05），先用样本数据计算出P值，若P&lt;$\alpha$则拒绝原假设；否则就不拒绝原假设。</p>
+<p><strong>第4步：</strong> 若拒绝原假设，还需对自变量和因变量进行关系强度测量（$R^2 = \frac{SSA}{SST}$）和多重比较（用来进一步检验到底哪些均值之间存在差异。常用LSD,HSD方法）。</p>
+<h4 id="2-1-3-方差齐性检验">2.1.3 方差齐性检验</h4>
+<p><strong>图示法：</strong> 箱线图、残差图（通过观察各样本数据的离散程度来比较方差是否相等）</p>
+<p><strong>检验法：</strong></p>
+<p>Hartley检验：仅适用于样本量相等的场合。</p>
+<p>Bartlett检验：样本量相等或不等均可，但是每个样本量不得低于5.</p>
+<p>Bartlett检验：在样本量较小或较大，相等或不等的情况下均能使用。</p>
+<p>Levene检验：它既可以用于正态分布总体，也可以用于非正态分布总体。</p>
+<h4 id="2-1-4-多重比较">2.1.4 多重比较</h4>
+<p>多重比较是通过均值之间的配对检验来找出到底哪些处理之间存在显著差异。事前比较的常用方法有<strong>LSD法、Dunnett-t法</strong>；事后比较的常用方法有<strong>SNK法、Scheffe法；<strong>事前比较和事后比较都可以采用的方法有</strong>Bonferroni法、Sidak法</strong>。这些方法具体使用时的特点如下：</p>
+<p><strong>LSD法：</strong> 即最小显著差法；是最简单的比较方法之一，它其实只是t检验的一种简单变形，未对检验水准做任何校正，只是在标准误计算上充分利用了样本信息。</p>
+<p><strong>Dunnett-t法：</strong> 常用于多个实验组与一个对照组间的比较，因此使用此法时，应当指定对照组；</p>
+<p><strong>SNK法：</strong> 是多重比较方法中检验尺度较严格的方法，也就是q检验；</p>
+<p><strong>Scheffe法：</strong> 它实质上是对多组均数间的线性组合是否为0做假设检验，多用于各组样本容量不等时的比较；</p>
+<p><strong>Sidak法：</strong> 它是在LSD法上加入了Sidak校正，通过校正降低每次两两比较的一类错误率，达到整个比较最终甲类错误率为α的目的；</p>
+<p><strong>Bonferroni法：</strong> 它是Bonferroni校正在LSD法上的应用。</p>
+<p>上述这些方法，使用的前提是各组均满足正态性和方差齐性，若满足正态性而不满足方差齐性时（此时尽量不作多重比较），可适宜采用Games-Howell等多重比较方法。</p>
+<h3 id="2-2-回归分析">2.2 回归分析</h3>
+<p><img src="/2022/03/06/%E5%B8%B8%E7%94%A8%E7%BB%9F%E8%AE%A1%E6%8E%A8%E6%96%AD%E6%96%B9%E6%B3%95/image-20220306171018318.png" alt="image-20220306171018318"></p>
+<h4 id="2-2-1-一元线性回归分析">2.2.1 一元线性回归分析</h4>
+<p><strong>（1）</strong>   <strong>数据清洗与标准化</strong></p>
+<ol>
+<li>
+<p>数据清洗：主要是为了保证数据的完整性与准确性。</p>
+</li>
+<li>
+<p>数据标准化：主要是为了消除量纲和变量自身变异大小和数值相差较大的影响。</p>
+</li>
+</ol>
+<p><strong>（2）</strong>   <strong>相关性分析</strong></p>
+<ol>
+<li>
+<p>图形法：散点图</p>
+</li>
+<li>
+<p>相关系数测度：用样本相关系数$r$估计总体相关系数$\rho$（用t检验判断显著性）</p>
+</li>
+</ol>
+<p><strong>（3）</strong>   <strong>参数估计</strong></p>
+<ol>
+<li>
+<p>建立一元线性回归模型：$y = \beta_0 + \beta_1 x + \varepsilon$</p>
+</li>
+<li>
+<p>利用最小二乘法（OLS）计算参数的估计值：$\hat{\beta_0}，\hat{\beta_1}$</p>
+</li>
+<li>
+<p>得出估计的回归方程：$y = \hat{\beta_0} + \hat{\beta_1 x} $</p>
+</li>
+</ol>
+<p><strong>（4）</strong>   <strong>显著性检验</strong></p>
+<ol>
+<li>拟合优度检验：</li>
+</ol>
+<p>​		①判定系数$R^2 = \frac{SSR}{SST}$。</p>
+<p>​		②估计标准误差：$s_e = \sqrt{\frac{SSE}{n-2}}$  。</p>
+<ol start="2">
+<li>回归系数的显著性检验：t检验</li>
+</ol>
+<p><strong>（5）</strong>   <strong>古典假定检验</strong></p>
+<ol>
+<li>
+<p>正态性检验：图示法有P-P图或Q-Q图等，检验法有W检验和K-S检验等</p>
+</li>
+<li>
+<p>方差齐性检验：检验方法有Spearman等级（秩）相关检验、Prak检验、Glejser检验、Goldfeld-Quandt检验、White检验等</p>
+</li>
+<li>
+<p>自相关检验：检验方法有DW检验，BG检验等</p>
+</li>
+</ol>
+<p><strong>（6）   回归调优与预测：</strong> 若各模型假定成立，则可使用估计的回归方程进行预测；若不成立，则需要重新对模型进行调优。</p>
+<h4 id="2-2-2-多元线性回归分析">2.2.2 多元线性回归分析</h4>
+<p><strong>（1）</strong> <strong>确定模型需要考虑的多个自变量，并假定因变量与各自变量之间是线性关系。</strong></p>
+<p><strong>（2）</strong> <strong>数据清洗与标准化</strong></p>
+<ol>
+<li>
+<p>数据清洗：主要是为了保证数据的完整性与准确性。</p>
+</li>
+<li>
+<p>数据标准化：主要是为了消除量纲和变量自身变异大小和数值大小的影响。</p>
+</li>
+</ol>
+<p><strong>（3）</strong> <strong>相关性分析</strong></p>
+<ol>
+<li>
+<p>图示法：散点图（用于展示两个变量之间的关系），气泡图（用于展示三个变量之间的关系），矩阵散点图（用于展示多个变量之间的关系）</p>
+</li>
+<li>
+<p>相关系数测度：用样本相关系数$r$估计总体相关系数$\rho$（用t检验判断显著性）</p>
+</li>
+</ol>
+<p><strong>（4）</strong>   <strong>参数估计</strong></p>
+<ol>
+<li>
+<p>建立一元线性回归模型：$y = \beta_0 + \beta_1 x_1 + \beta_2 x_2 +…+\beta_k x_k +\varepsilon$</p>
+</li>
+<li>
+<p>利用最小二乘法（OLS）计算参数的估计值：$\hat{\beta_0}，\hat{\beta_1}，\hat{\beta_2}，…，\hat{\beta_k}$</p>
+</li>
+<li>
+<p>得出估计的回归方程：$y = \hat{\beta_0} + \hat{\beta_1 x-1}  + \hat{\beta_2 x_2} +…+ \hat{\beta_k x_k}$</p>
+</li>
+</ol>
+<p><strong>（5）</strong>   <strong>显著性检验</strong></p>
+<ol>
+<li>拟合优度检验：</li>
+</ol>
+<p>​		①调整的多重判定系数$R_a^2 = 1 - (1-R^2) ×\frac{n-1}{n-k-1}$，其中，$R^2 = \frac{SSR}{SST}$。</p>
+<p>​		②估计标准误差：$s_e = \sqrt{\frac{SSE}{n-k-1}}$  。</p>
+<ol start="2">
+<li>
+<p>回归方程的显著性检验（F检验）：用于检验因变量同多个自变量的整体线性关系是否显著。</p>
+</li>
+<li>
+<p>回归系数的显著性检验（t检验）：用于判断每个自变量对因变量的影响是否都显著。</p>
+</li>
+</ol>
+<p><strong>（6）</strong>   <strong>古典假定检验</strong></p>
+<ol>
+<li>
+<p>正态性检验：图示法有P-P图或Q-Q图等，检验法有W检验和K-S检验等</p>
+</li>
+<li>
+<p>方差齐性检验：检验方法有Prak检验、Glejser检验、White检验等</p>
+</li>
+<li>
+<p>自相关检验：检验方法有DW检验，BG检验等</p>
+</li>
+<li>
+<p>无多重共线性：一般通过判定系数或方差扩大因子判断，克服方法有<strong>最优子集法、逐步回归法、岭回归法等</strong>。</p>
+</li>
+</ol>
+<p><strong>（7）</strong> **回归调优与预测：**若各模型假定成立，则可使用估计的回归方程进行预测；若不成立，则需要重新对模型进行调优。</p>
+<h4 id="2-2-3-模型的古典假定检验">2.2.3 模型的古典假定检验</h4>
+<p><strong>一、</strong>    <strong>正态性检验</strong></p>
+<p>正态性假定对估计回归方程的参数影响不大，但对于假设检验和预测来说是必要的，因为可能会造成结果错误。<strong>其检验方法如下：</strong></p>
+<p><strong>图示法：</strong></p>
+<ol>
+<li>
+<p><strong>直方图或茎叶图：</strong> 若数据近似服从正态分布，则图形的形状与正态曲线应该相似。</p>
+</li>
+<li>
+<p><strong>P-P图或Q-Q图：</strong> 若数据近似服从正态分布，则观测值和理论值形成的散点大致分布在第一象限的对角线上。</p>
+</li>
+</ol>
+<p><strong>计算法：</strong></p>
+<ol>
+<li>
+<p><strong>偏态系数（SK）和峰态系数（K）：</strong> 当SK=K=0时，分布呈正态。因此，若数据近似服从正态分布，其SK和K都接近于0。</p>
+</li>
+<li>
+<p><strong>W检验（适用于小样本）和D检验：</strong> 通过正态性检验计算P值，当P值大于给定的显著性水平时，表明数据服从正态分布。</p>
+</li>
+</ol>
+<p><strong>均值线性回归是否要求变量服从正态分布？</strong></p>
+<ol>
+<li>
+<p>针对解释变量：因为在古典假定中要求其是非随机变量，故不会有正态性要求。</p>
+</li>
+<li>
+<p>针对随机误差项：在古典假定中，要求其为正态分布。</p>
+</li>
+<li>
+<p>针对被解释变量：虽然没有明确要求其为正态分布，但在古典假定满足的前提下，也是符合正态分布的。</p>
+</li>
+</ol>
+<p><strong>若不服从正态，怎么解决？</strong></p>
+<ol>
+<li>
+<p>增大样本量</p>
+</li>
+<li>
+<p>利用Box-Cox变换将其变换成符合正态性的变量</p>
+</li>
+</ol>
+<p><strong>二、</strong>    <strong>异方差检验</strong></p>
+<p><strong>1.</strong>   <strong>原因：</strong> 模型中省略的解释变量、测量误差、截面数据中总体各单位的差异、模型函数形式的设定错误。</p>
+<p><strong>2.</strong>   <strong>后果：</strong></p>
+<p>最小二乘估计量不满足有效性，且参数方差的估计量也是有偏的；</p>
+<p>参数的显著性检验和置信区间的建立发生困难；</p>
+<p>预测精确度降低。</p>
+<p><strong>3.</strong>   <strong>检验方法</strong></p>
+<p><strong>图示法：</strong> 利用因变量y（或残差e）与解释变量x的散点图判断，若样本散点图中y的分布（或e的取值）随着x而变化则可能出现异方差。</p>
+<p><strong>Spearman等级（秩）相关检验：</strong> 这是一种非参数检验，它假设Spearman等级（秩）的相关系数为0，若拒绝该假设则说明存在异方差。</p>
+<p><strong>Prak检验和Glejser检验：</strong> 两种方法都是将随机误差项的方差看作是解释变量的某个函数，通过检验两变量之间的回归方程来判断是否存在异方差。其中Glejeser不仅可以说明异方差的存在，还可以确定其具体形式。</p>
+<p><strong>White检验：</strong> 它通过分析方差是否与解释变量有某些形式的联系来判断异方差性。它能判断出是由哪一个变量引起的异方差，适用于观测值为大样本的情形。</p>
+<p><strong>4.</strong>   <strong>异方差的修正</strong></p>
+<p><strong>加权最小二乘法：</strong> 它是通过对原模型加权，使其变成一个新的不存在异方差性的模型，然后再采用普通最小二乘法估计其参数。</p>
+<p><strong>采用方差的稳健估计量：</strong> 通过构造<strong>异方差性一致性方差</strong>来解决异方差性问题，它的优点在于不需要知道异方差性的具体形式。</p>
+<p><strong>模型的对数变换：</strong> 通过对线性模型作对数变化降低异方差性的影响。</p>
+<p><strong>三、</strong>    <strong>自相关检验（主要是时间序列中）</strong></p>
+<p><strong>1.</strong>   <strong>原因：</strong> 被解释变量的自相关、解释变量的省略、随机项本身存在自相关、回归模型函数形式设定错误、经济变量的惯性作用</p>
+<p><strong>2.</strong>   <strong>后果：</strong></p>
+<p>最小二乘估计量不满足有效性，且参数方差的估计量也是有偏的；</p>
+<p>参数的显著性检验和置信区间的建立发生困难；</p>
+<p>预测精确度降低。</p>
+<p><strong>3.</strong>   <strong>检验方法</strong></p>
+<p><strong>图示法：</strong></p>
+<ol>
+<li>
+<p>绘制残差  的散点图，若  存在线性相关则表明随机项u存在自相关。</p>
+</li>
+<li>
+<p>绘制残差时间序列图，如果  随时间t的变化存在明显的规律性，则随机项存在自相关。</p>
+</li>
+</ol>
+<p><strong>DW检验：</strong> 适用于检验小样本的随机误差项一阶自相关。</p>
+<p><strong>BG检验</strong>： 它是基于拉格朗日乘数的检验，解决了不满足DW检验条件的情况，可以进行高阶自相关检验。</p>
+<p><strong>解决方案：一阶差分法、广义差分法、使用稳健方差估计量</strong></p>
+<h4 id="2-2-4-残差分析（识别异常值X、Y）">2.2.4 残差分析（识别异常值X、Y）</h4>
+<p><strong>一、</strong>    <strong>关于因变量Y异常值的识别</strong></p>
+<p>在残差分析中，一般认为超过  的残差为异常值，常用的残差有：</p>
+<p><img src="/2022/03/06/%E5%B8%B8%E7%94%A8%E7%BB%9F%E8%AE%A1%E6%8E%A8%E6%96%AD%E6%96%B9%E6%B3%95/image-20220306172705587.png" alt="image-20220306172705587"></p>
+<p><strong>二、</strong>    <strong>关于自变量X的异常值识别</strong></p>
+<ol>
+<li>
+<p>用杠杆值 （或中心化杠杆值  ）判断：如果其值大于2倍或3倍的平均杠杠值  （或中心化的平均杠杆值  ）就是为异常值。</p>
+</li>
+<li>
+<p>用库克距离判别：当  时，认为不是异常值；当  时认为是异常值。</p>
+</li>
+</ol>
+<p><strong>异常值的处理方法:</strong></p>
+<p>1.删除含有异常值的记录</p>
+<p>2.将异常值视为缺失值，交给缺失值处理方法来处理</p>
+<p>3.用平均值来修正</p>
+<p>4.不处理，单独对其分析</p>
+<h4 id="2-2-5-共线性诊断与变量筛选">2.2.5 共线性诊断与变量筛选</h4>
+<p><strong>一、共线性诊断</strong></p>
+<p>多重共线性有两种情形：1.完全多重共线性；2.不完全多重共线性。</p>
+<ol>
+<li>
+<p><strong>产生原因主要有：</strong></p>
+<p>经济变量之间具有共同变化趋势；利用截面数据建立模型也可能出现多重共性性；模型中包含滞后变量；样本数据的自身原因。</p>
+</li>
+<li>
+<p><strong>完全多重共线性违反了古典假定，它产生的后果有：</strong></p>
+<p>参数的最小二乘估计量不确定且其方差变为无穷大。</p>
+</li>
+<li>
+<p><strong>不完全多重共线性没有违反古典假定，它产生的后果有：</strong></p>
+<p>估计结果不好解释；参数估计值的方差增大；参数估计的置信区间变大；假设检验容易作出错误的判断。</p>
+</li>
+<li>
+<p><strong>检验</strong></p>
+</li>
+</ol>
+<p>（1）通过散点图判断两变量的相关性</p>
+<p>（2）通过相关系数判断相关性的大小</p>
+<p>（3）采用经验判别，通常出现下列情况暗示存在多重共线性：</p>
+<p>​			① $R^2$较高；</p>
+<p>​			② 回归方程的F检验显著但回归系数的t检验大多都不显著；</p>
+<p>​			③ 容忍度：通常认为其值小于0.1时，存在严重的多重共线性。</p>
+<p>​			④ 方差扩大因子（VIF）：通常认为其值大于10时，存在严重的多重共线性。（条件指数CI——划分100——1000）</p>
+<p><strong>二、变量筛选</strong></p>
+<p><strong>克服多重共线性的方法</strong></p>
+<p><strong>（1）直接经验法：</strong> 包括增加样本值、删去不重要的解释变量等。</p>
+<p><strong>（2）最优子集法</strong>： 通过对所有可能的变量组合模型一一进行测试，利用判别准则（如AIC，BIC等）得到最优的自变量组合。其缺点是计算量太大，适合于筛选变量较少的情况。</p>
+<p><strong>（3）逐步回归法：</strong> 与最优子集法类似，不同之处在于不对所有模型进行测试，而是采用向前选择、向后剔除的方式进行模型测试，然后通过判别准则选出最好的自变量组合。</p>
+<p><strong>（4）岭回归法：</strong> 是一种改良的最小二乘估计法，通过放弃最小二乘法的无偏性，以损失部分信息、降低精度为代价获得回归系数更为符合实际、更可靠的回归方法，对病态数据的拟合要强于最小二乘法。</p>
+<p><strong>（5）Lasso回归法：</strong> 它是一种压缩估计的方法，通过对最小二乘估计加入罚约束，使某些系数为0，从而筛选出一组合适的自变量。</p>
+<p><strong>（6）变量降维法：</strong> 主要有主成分回归（PRC）和偏最小二乘回归（PLS）两种方法。它们是通过把K个预测变量投影到m维空间（m&lt;k），利用投影得到的不相关的自变量组合建立线性模型。它们的不同之处之处在于PRC选择自变量的方法与因变量无关，而PLS则考虑了与因变量的相关性。</p>
+<p><strong>其中，自变量选择方法有：</strong> 最优子集法、逐步回归法、Lasso回归法、变量降维法</p>
+
+      
+    </div>
+    
+    
+    
+
+    
+
+    
+
+    
+
+    <footer class="post-footer">
+      
+        <div class="post-tags">
+          
+            <a href="/tags/%E7%BB%9F%E8%AE%A1%E6%8E%A8%E6%96%AD/" rel="tag"># 统计推断</a>
+          
+        </div>
+      
+
+      
+      
+      
+
+      
+        <div class="post-nav">
+          <div class="post-nav-next post-nav-item">
+            
+              <a href="/2022/03/05/%E6%8E%A8%E6%96%AD%E7%BB%9F%E8%AE%A1%E5%AD%A6/" rel="next" title="推断统计学">
+                <i class="fa fa-chevron-left"></i> 推断统计学
+              </a>
+            
+          </div>
+
+          <span class="post-nav-divider"></span>
+
+          <div class="post-nav-prev post-nav-item">
+            
+          </div>
+        </div>
+      
+
+      
+      
+    </footer>
+  </div>
+  
+  
+  
+  </article>
+
+
+
+    <div class="post-spread">
+      
+    </div>
+  </div>
+
+
+          </div>
+          
+
+
+          
+
+  
+
+
+
+        </div>
+        
+          
+  
+  <div class="sidebar-toggle">
+    <div class="sidebar-toggle-line-wrap">
+      <span class="sidebar-toggle-line sidebar-toggle-line-first"></span>
+      <span class="sidebar-toggle-line sidebar-toggle-line-middle"></span>
+      <span class="sidebar-toggle-line sidebar-toggle-line-last"></span>
+    </div>
+  </div>
+
+  <aside id="sidebar" class="sidebar">
+    
+    <div class="sidebar-inner">
+
+      
+
+      
+        <ul class="sidebar-nav motion-element">
+          <li class="sidebar-nav-toc sidebar-nav-active" data-target="post-toc-wrap">
+            文章目录
+          </li>
+          <li class="sidebar-nav-overview" data-target="site-overview-wrap">
+            站点概览
+          </li>
+        </ul>
+      
+
+      <section class="site-overview-wrap sidebar-panel">
+        <div class="site-overview">
+          <div class="site-author motion-element" itemprop="author" itemscope itemtype="http://schema.org/Person">
+            
+              <img class="site-author-image" itemprop="image"
+                src="/images/header.jpg"
+                alt="" />
+            
+              <p class="site-author-name" itemprop="name"></p>
+              <p class="site-description motion-element" itemprop="description"></p>
+          </div>
+
+          <nav class="site-state motion-element">
+
+            
+              <div class="site-state-item site-state-posts">
+              
+                <a href="/archives/%7C%7Carchive">
+              
+                  <span class="site-state-item-count">6</span>
+                  <span class="site-state-item-name">日志</span>
+                </a>
+              </div>
+            
+
+            
+              
+              
+              <div class="site-state-item site-state-categories">
+                <a href="/categories/index.html">
+                  <span class="site-state-item-count">3</span>
+                  <span class="site-state-item-name">分类</span>
+                </a>
+              </div>
+            
+
+            
+              
+              
+              <div class="site-state-item site-state-tags">
+                <a href="/tags/index.html">
+                  <span class="site-state-item-count">4</span>
+                  <span class="site-state-item-name">标签</span>
+                </a>
+              </div>
+            
+
+          </nav>
+
+          
+            <div class="feed-link motion-element">
+              <a href="/atom.xml" rel="alternate">
+                <i class="fa fa-rss"></i>
+                RSS
+              </a>
+            </div>
+          
+
+          
+
+          
+          
+
+          
+          
+
+          
+
+        </div>
+      </section>
+
+      
+      <!--noindex-->
+        <section class="post-toc-wrap motion-element sidebar-panel sidebar-panel-active">
+          <div class="post-toc">
+
+            
+              
+            
+
+            
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-2"><a class="nav-link" href="#1-%E5%88%86%E7%B1%BB%E6%95%B0%E6%8D%AE%E5%88%86%E6%9E%90"><span class="nav-text">1. 分类数据分析</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#1-1-%E6%8B%9F%E5%90%88%E4%BC%98%E5%BA%A6%E6%A3%80%E9%AA%8C"><span class="nav-text">1.1 拟合优度检验</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#1-2-%E7%8B%AC%E7%AB%8B%E6%80%A7%E6%A3%80%E9%AA%8C"><span class="nav-text">1.2 独立性检验</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#2-%E6%95%B0%E5%80%BC%E5%9E%8B%E6%95%B0%E6%8D%AE%E5%88%86%E6%9E%90"><span class="nav-text">2. 数值型数据分析</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#2-1-%E6%96%B9%E5%B7%AE%E5%88%86%E6%9E%90"><span class="nav-text">2.1 方差分析</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#2-1-1-%E5%8D%95%E5%9B%A0%E7%B4%A0%E6%96%B9%E5%B7%AE%E5%88%86%E6%9E%90%EF%BC%88%E5%AE%8C%E5%85%A8%E9%9A%8F%E6%9C%BA%E5%8C%96%E8%AE%BE%E8%AE%A1%EF%BC%89"><span class="nav-text">2.1.1 单因素方差分析（完全随机化设计）</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#2-1-2-%E5%8F%8C%E5%9B%A0%E7%B4%A0%E6%96%B9%E5%B7%AE%E5%88%86%E6%9E%90"><span class="nav-text">2.1.2 双因素方差分析</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#2-1-3-%E6%96%B9%E5%B7%AE%E9%BD%90%E6%80%A7%E6%A3%80%E9%AA%8C"><span class="nav-text">2.1.3 方差齐性检验</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#2-1-4-%E5%A4%9A%E9%87%8D%E6%AF%94%E8%BE%83"><span class="nav-text">2.1.4 多重比较</span></a></li></ol></li><li class="nav-item nav-level-3"><a class="nav-link" href="#2-2-%E5%9B%9E%E5%BD%92%E5%88%86%E6%9E%90"><span class="nav-text">2.2 回归分析</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#2-2-1-%E4%B8%80%E5%85%83%E7%BA%BF%E6%80%A7%E5%9B%9E%E5%BD%92%E5%88%86%E6%9E%90"><span class="nav-text">2.2.1 一元线性回归分析</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#2-2-2-%E5%A4%9A%E5%85%83%E7%BA%BF%E6%80%A7%E5%9B%9E%E5%BD%92%E5%88%86%E6%9E%90"><span class="nav-text">2.2.2 多元线性回归分析</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#2-2-3-%E6%A8%A1%E5%9E%8B%E7%9A%84%E5%8F%A4%E5%85%B8%E5%81%87%E5%AE%9A%E6%A3%80%E9%AA%8C"><span class="nav-text">2.2.3 模型的古典假定检验</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#2-2-4-%E6%AE%8B%E5%B7%AE%E5%88%86%E6%9E%90%EF%BC%88%E8%AF%86%E5%88%AB%E5%BC%82%E5%B8%B8%E5%80%BCX%E3%80%81Y%EF%BC%89"><span class="nav-text">2.2.4 残差分析（识别异常值X、Y）</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#2-2-5-%E5%85%B1%E7%BA%BF%E6%80%A7%E8%AF%8A%E6%96%AD%E4%B8%8E%E5%8F%98%E9%87%8F%E7%AD%9B%E9%80%89"><span class="nav-text">2.2.5 共线性诊断与变量筛选</span></a></li></ol></li></ol></li></ol></div>
+            
+
+          </div>
+        </section>
+      <!--/noindex-->
+      
+
+      
+
+    </div>
+  </aside>
+
+
+        
+      </div>
+    </main>
+
+    <footer id="footer" class="footer">
+      <div class="footer-inner">
+        <div class="copyright">&copy; <span itemprop="copyrightYear">2022</span>
+  <span class="with-love">
+    <i class="fa fa-user"></i>
+  </span>
+  <span class="author" itemprop="copyrightHolder">归一</span>
+
+  
+</div>
+
+
+  <div class="powered-by">由 <a class="theme-link" target="_blank" href="https://hexo.io">Hexo</a> 强力驱动</div>
+
+
+
+  <span class="post-meta-divider">|</span>
+
+
+
+  <div class="theme-info">主题 &mdash; <a class="theme-link" target="_blank" href="https://github.com/iissnan/hexo-theme-next">NexT.Mist</a> v5.1.4</div>
+
+
+
+<div>
+<script async src="//busuanzi.ibruce.info/busuanzi/2.3/busuanzi.pure.mini.js"></script>
+<span id="busuanzi_container_site_pv" style='display:none'>
+    本站总访问量 <span id="busuanzi_value_site_pv"></span> 次
+    <span class="post-meta-divider">|</span>
+</span>
+<span id="busuanzi_container_site_uv" style='display:none'>
+    有<span id="busuanzi_value_site_uv"></span>人看过我的博客啦
+</span>
+</div>
+
+        
+
+
+
+
+
+
+
+        
+      </div>
+    </footer>
+
+    
+      <div class="back-to-top">
+        <i class="fa fa-arrow-up"></i>
+        
+          <span id="scrollpercent"><span>0</span>%</span>
+        
+      </div>
+    
+
+    
+
+  </div>
+
+  
+
+<script type="text/javascript">
+  if (Object.prototype.toString.call(window.Promise) !== '[object Function]') {
+    window.Promise = null;
+  }
+</script>
+
+
+
+
+
+
+
+
+
+  
+
+
+
+
+
+
+
+
+
+
+
+
+  
+  
+    <script type="text/javascript" src="/lib/jquery/index.js?v=2.1.3"></script>
+  
+
+  
+  
+    <script type="text/javascript" src="/lib/fastclick/lib/fastclick.min.js?v=1.0.6"></script>
+  
+
+  
+  
+    <script type="text/javascript" src="/lib/jquery_lazyload/jquery.lazyload.js?v=1.9.7"></script>
+  
+
+  
+  
+    <script type="text/javascript" src="/lib/velocity/velocity.min.js?v=1.2.1"></script>
+  
+
+  
+  
+    <script type="text/javascript" src="/lib/velocity/velocity.ui.min.js?v=1.2.1"></script>
+  
+
+  
+  
+    <script type="text/javascript" src="/lib/fancybox/source/jquery.fancybox.pack.js?v=2.1.5"></script>
+  
+
+
+  
+
+
+  <script type="text/javascript" src="/js/src/utils.js?v=5.1.4"></script>
+
+  <script type="text/javascript" src="/js/src/motion.js?v=5.1.4"></script>
+
+
+
+  
+  
+
+  
+  <script type="text/javascript" src="/js/src/scrollspy.js?v=5.1.4"></script>
+<script type="text/javascript" src="/js/src/post-details.js?v=5.1.4"></script>
+
+
+
+  
+
+
+  <script type="text/javascript" src="/js/src/bootstrap.js?v=5.1.4"></script>
+
+
+
+  
+
+
+  
+
+
+
+
+	
+
+
+
+
+
+  
+
+
+
+
+
+  
+
+
+
+
+
+
+
+
+
+
+
+
+  
+
+  <script type="text/javascript">
+    // Popup Window;
+    var isfetched = false;
+    var isXml = true;
+    // Search DB path;
+    var search_path = "search.xml";
+    if (search_path.length === 0) {
+      search_path = "search.xml";
+    } else if (/json$/i.test(search_path)) {
+      isXml = false;
+    }
+    var path = "/" + search_path;
+    // monitor main search box;
+
+    var onPopupClose = function (e) {
+      $('.popup').hide();
+      $('#local-search-input').val('');
+      $('.search-result-list').remove();
+      $('#no-result').remove();
+      $(".local-search-pop-overlay").remove();
+      $('body').css('overflow', '');
+    }
+
+    function proceedsearch() {
+      $("body")
+        .append('<div class="search-popup-overlay local-search-pop-overlay"></div>')
+        .css('overflow', 'hidden');
+      $('.search-popup-overlay').click(onPopupClose);
+      $('.popup').toggle();
+      var $localSearchInput = $('#local-search-input');
+      $localSearchInput.attr("autocapitalize", "none");
+      $localSearchInput.attr("autocorrect", "off");
+      $localSearchInput.focus();
+    }
+
+    // search function;
+    var searchFunc = function(path, search_id, content_id) {
+      'use strict';
+
+      // start loading animation
+      $("body")
+        .append('<div class="search-popup-overlay local-search-pop-overlay">' +
+          '<div id="search-loading-icon">' +
+          '<i class="fa fa-spinner fa-pulse fa-5x fa-fw"></i>' +
+          '</div>' +
+          '</div>')
+        .css('overflow', 'hidden');
+      $("#search-loading-icon").css('margin', '20% auto 0 auto').css('text-align', 'center');
+
+      $.ajax({
+        url: path,
+        dataType: isXml ? "xml" : "json",
+        async: true,
+        success: function(res) {
+          // get the contents from search data
+          isfetched = true;
+          $('.popup').detach().appendTo('.header-inner');
+          var datas = isXml ? $("entry", res).map(function() {
+            return {
+              title: $("title", this).text(),
+              content: $("content",this).text(),
+              url: $("url" , this).text()
+            };
+          }).get() : res;
+          var input = document.getElementById(search_id);
+          var resultContent = document.getElementById(content_id);
+          var inputEventFunction = function() {
+            var searchText = input.value.trim().toLowerCase();
+            var keywords = searchText.split(/[\s\-]+/);
+            if (keywords.length > 1) {
+              keywords.push(searchText);
+            }
+            var resultItems = [];
+            if (searchText.length > 0) {
+              // perform local searching
+              datas.forEach(function(data) {
+                var isMatch = false;
+                var hitCount = 0;
+                var searchTextCount = 0;
+                var title = data.title.trim();
+                var titleInLowerCase = title.toLowerCase();
+                var content = data.content.trim().replace(/<[^>]+>/g,"");
+                var contentInLowerCase = content.toLowerCase();
+                var articleUrl = decodeURIComponent(data.url);
+                var indexOfTitle = [];
+                var indexOfContent = [];
+                // only match articles with not empty titles
+                if(title != '') {
+                  keywords.forEach(function(keyword) {
+                    function getIndexByWord(word, text, caseSensitive) {
+                      var wordLen = word.length;
+                      if (wordLen === 0) {
+                        return [];
+                      }
+                      var startPosition = 0, position = [], index = [];
+                      if (!caseSensitive) {
+                        text = text.toLowerCase();
+                        word = word.toLowerCase();
+                      }
+                      while ((position = text.indexOf(word, startPosition)) > -1) {
+                        index.push({position: position, word: word});
+                        startPosition = position + wordLen;
+                      }
+                      return index;
+                    }
+
+                    indexOfTitle = indexOfTitle.concat(getIndexByWord(keyword, titleInLowerCase, false));
+                    indexOfContent = indexOfContent.concat(getIndexByWord(keyword, contentInLowerCase, false));
+                  });
+                  if (indexOfTitle.length > 0 || indexOfContent.length > 0) {
+                    isMatch = true;
+                    hitCount = indexOfTitle.length + indexOfContent.length;
+                  }
+                }
+
+                // show search results
+
+                if (isMatch) {
+                  // sort index by position of keyword
+
+                  [indexOfTitle, indexOfContent].forEach(function (index) {
+                    index.sort(function (itemLeft, itemRight) {
+                      if (itemRight.position !== itemLeft.position) {
+                        return itemRight.position - itemLeft.position;
+                      } else {
+                        return itemLeft.word.length - itemRight.word.length;
+                      }
+                    });
+                  });
+
+                  // merge hits into slices
+
+                  function mergeIntoSlice(text, start, end, index) {
+                    var item = index[index.length - 1];
+                    var position = item.position;
+                    var word = item.word;
+                    var hits = [];
+                    var searchTextCountInSlice = 0;
+                    while (position + word.length <= end && index.length != 0) {
+                      if (word === searchText) {
+                        searchTextCountInSlice++;
+                      }
+                      hits.push({position: position, length: word.length});
+                      var wordEnd = position + word.length;
+
+                      // move to next position of hit
+
+                      index.pop();
+                      while (index.length != 0) {
+                        item = index[index.length - 1];
+                        position = item.position;
+                        word = item.word;
+                        if (wordEnd > position) {
+                          index.pop();
+                        } else {
+                          break;
+                        }
+                      }
+                    }
+                    searchTextCount += searchTextCountInSlice;
+                    return {
+                      hits: hits,
+                      start: start,
+                      end: end,
+                      searchTextCount: searchTextCountInSlice
+                    };
+                  }
+
+                  var slicesOfTitle = [];
+                  if (indexOfTitle.length != 0) {
+                    slicesOfTitle.push(mergeIntoSlice(title, 0, title.length, indexOfTitle));
+                  }
+
+                  var slicesOfContent = [];
+                  while (indexOfContent.length != 0) {
+                    var item = indexOfContent[indexOfContent.length - 1];
+                    var position = item.position;
+                    var word = item.word;
+                    // cut out 100 characters
+                    var start = position - 20;
+                    var end = position + 80;
+                    if(start < 0){
+                      start = 0;
+                    }
+                    if (end < position + word.length) {
+                      end = position + word.length;
+                    }
+                    if(end > content.length){
+                      end = content.length;
+                    }
+                    slicesOfContent.push(mergeIntoSlice(content, start, end, indexOfContent));
+                  }
+
+                  // sort slices in content by search text's count and hits' count
+
+                  slicesOfContent.sort(function (sliceLeft, sliceRight) {
+                    if (sliceLeft.searchTextCount !== sliceRight.searchTextCount) {
+                      return sliceRight.searchTextCount - sliceLeft.searchTextCount;
+                    } else if (sliceLeft.hits.length !== sliceRight.hits.length) {
+                      return sliceRight.hits.length - sliceLeft.hits.length;
+                    } else {
+                      return sliceLeft.start - sliceRight.start;
+                    }
+                  });
+
+                  // select top N slices in content
+
+                  var upperBound = parseInt('1');
+                  if (upperBound >= 0) {
+                    slicesOfContent = slicesOfContent.slice(0, upperBound);
+                  }
+
+                  // highlight title and content
+
+                  function highlightKeyword(text, slice) {
+                    var result = '';
+                    var prevEnd = slice.start;
+                    slice.hits.forEach(function (hit) {
+                      result += text.substring(prevEnd, hit.position);
+                      var end = hit.position + hit.length;
+                      result += '<b class="search-keyword">' + text.substring(hit.position, end) + '</b>';
+                      prevEnd = end;
+                    });
+                    result += text.substring(prevEnd, slice.end);
+                    return result;
+                  }
+
+                  var resultItem = '';
+
+                  if (slicesOfTitle.length != 0) {
+                    resultItem += "<li><a href='" + articleUrl + "' class='search-result-title'>" + highlightKeyword(title, slicesOfTitle[0]) + "</a>";
+                  } else {
+                    resultItem += "<li><a href='" + articleUrl + "' class='search-result-title'>" + title + "</a>";
+                  }
+
+                  slicesOfContent.forEach(function (slice) {
+                    resultItem += "<a href='" + articleUrl + "'>" +
+                      "<p class=\"search-result\">" + highlightKeyword(content, slice) +
+                      "...</p>" + "</a>";
+                  });
+
+                  resultItem += "</li>";
+                  resultItems.push({
+                    item: resultItem,
+                    searchTextCount: searchTextCount,
+                    hitCount: hitCount,
+                    id: resultItems.length
+                  });
+                }
+              })
+            };
+            if (keywords.length === 1 && keywords[0] === "") {
+              resultContent.innerHTML = '<div id="no-result"><i class="fa fa-search fa-5x" /></div>'
+            } else if (resultItems.length === 0) {
+              resultContent.innerHTML = '<div id="no-result"><i class="fa fa-frown-o fa-5x" /></div>'
+            } else {
+              resultItems.sort(function (resultLeft, resultRight) {
+                if (resultLeft.searchTextCount !== resultRight.searchTextCount) {
+                  return resultRight.searchTextCount - resultLeft.searchTextCount;
+                } else if (resultLeft.hitCount !== resultRight.hitCount) {
+                  return resultRight.hitCount - resultLeft.hitCount;
+                } else {
+                  return resultRight.id - resultLeft.id;
+                }
+              });
+              var searchResultList = '<ul class=\"search-result-list\">';
+              resultItems.forEach(function (result) {
+                searchResultList += result.item;
+              })
+              searchResultList += "</ul>";
+              resultContent.innerHTML = searchResultList;
+            }
+          }
+
+          if ('auto' === 'auto') {
+            input.addEventListener('input', inputEventFunction);
+          } else {
+            $('.search-icon').click(inputEventFunction);
+            input.addEventListener('keypress', function (event) {
+              if (event.keyCode === 13) {
+                inputEventFunction();
+              }
+            });
+          }
+
+          // remove loading animation
+          $(".local-search-pop-overlay").remove();
+          $('body').css('overflow', '');
+
+          proceedsearch();
+        }
+      });
+    }
+
+    // handle and trigger popup window;
+    $('.popup-trigger').click(function(e) {
+      e.stopPropagation();
+      if (isfetched === false) {
+        searchFunc(path, 'local-search-input', 'local-search-result');
+      } else {
+        proceedsearch();
+      };
+    });
+
+    $('.popup-btn-close').click(onPopupClose);
+    $('.popup').click(function(e){
+      e.stopPropagation();
+    });
+    $(document).on('keyup', function (event) {
+      var shouldDismissSearchPopup = event.which === 27 &&
+        $('.search-popup').is(':visible');
+      if (shouldDismissSearchPopup) {
+        onPopupClose();
+      }
+    });
+  </script>
+
+
+
+
+
+  
+
+  
+
+  
+
+  
+  
+
+  
+  
+    <script type="text/x-mathjax-config">
+      MathJax.Hub.Config({
+        tex2jax: {
+          inlineMath: [ ['$','$'], ["\\(","\\)"]  ],
+          processEscapes: true,
+          skipTags: ['script', 'noscript', 'style', 'textarea', 'pre', 'code']
+        }
+      });
+    </script>
+
+    <script type="text/x-mathjax-config">
+      MathJax.Hub.Queue(function() {
+        var all = MathJax.Hub.getAllJax(), i;
+        for (i=0; i < all.length; i += 1) {
+          all[i].SourceElement().parentNode.className += ' has-jax';
+        }
+      });
+    </script>
+    <script type="text/javascript" src="//cdn.staticfile.org/MathJax/MathJax-2.6-latest/MathJax.js?config=TeX-AMS-MML_HTMLorMML"></script>
+  
+
+
+  
+
+  
+
+</body>
+</html>
